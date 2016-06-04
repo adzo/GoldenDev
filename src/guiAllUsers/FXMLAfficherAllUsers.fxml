@@ -6,10 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guiAfficherAllUsers.FXMLAfficherAllUsersController">
+<AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="726.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiAllUsers.FXMLAfficherAllUsersController">
    <children>
-      <TableView fx:id="tableAllUsers" prefHeight="400.0" prefWidth="600.0" >
+      <TableView fx:id="tableAllUsers" onMouseClicked="#selectedUser" prefHeight="400.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="login" prefWidth="185.0" text="LOGIN" />
@@ -17,5 +16,6 @@
             <TableColumn fx:id="type" prefWidth="129.0" text="TYPE" />
         </columns>
       </TableView>
+      <Button fx:id="delete" layoutX="620.0" layoutY="50.0" mnemonicParsing="false" onAction="#deleteAllUser" prefHeight="29.0" prefWidth="87.0" text="DELETE" />
    </children>
 </AnchorPane>

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guiAfficherAllUsers;
+package guiAllUsers;
 
-import guiAjoutAllUsers.AjoutAllUsers;
+import entities.AllUsers;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,19 +23,32 @@ import javafx.stage.Stage;
  *
  * @author AD ZO
  */
-public class AfficherAllUsers extends Application {
+public class DeleteAllUsers extends Application {
+    
+    private static DeleteAllUsers instance = null;
+
+    public static DeleteAllUsers getInstance(){
+        if(instance == null){
+            instance = new DeleteAllUsers();
+        }
+        return instance;
+    }
+    
+    
     
     @Override
-    public void start(Stage afficherAllUsers) {
-         try {
-            Parent root = FXMLLoader.load(getClass().getResource("FXMLAfficherAllUsers.fxml"));
+    public void start(Stage deleteAllUsers) {
+         AllUsers u = new AllUsers(5, "adzo", "123456", "arbitre");
+        AllUsers.modifiedUser = u;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLDeleteAllUsers.fxml"));
             
             Scene scene = new Scene(root);
-            afficherAllUsers.setTitle("Affichage des utilisateurs");
-            afficherAllUsers.setScene(scene);
+            deleteAllUsers.setTitle("Warning: suppression d'un utilisateur");
+            deleteAllUsers.setScene(scene);
             
-            afficherAllUsers.setResizable(false);
-            afficherAllUsers.show();
+            deleteAllUsers.setResizable(false);
+            deleteAllUsers.show();
         } catch (IOException ex) {
             Logger.getLogger(AjoutAllUsers.class.getName()).log(Level.SEVERE, null, ex);
         }

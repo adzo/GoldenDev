@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guiAjoutAllUsers;
+package guiAllUsers;
 
 import dao.AllUsersDAO;
 import entities.AllUsers;

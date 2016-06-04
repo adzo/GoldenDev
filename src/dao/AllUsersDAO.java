@@ -43,56 +43,62 @@ public class AllUsersDAO {
         }
     }
 
-    public void supprimer(int i) {
+    public void supprimer() {
 
-    }
-    
-    public boolean existe(AllUsers s){
         try {
-            AllUsers u= new AllUsers();
-            int i=0;
-            
-            
-            String req ="SELECT * FROM `alluser` WHERE login = '"+s.getLogin()+"'";
+            String req = "DELETE FROM `alluser` WHERE `id` = ?";
             pst = connection.prepareStatement(req);
-           
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()){return true;
-            }
-            
+            pst.setInt(1, AllUsers.modifiedUser.getId());
+            pst.executeUpdate();
+            System.out.println("User deleted");
         } catch (SQLException ex) {
             Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return false;
-            
-        
-        
-        
-        
+
     }
-    
+
+    public boolean existe(AllUsers s) {
+        try {
+            AllUsers u = new AllUsers();
+            int i = 0;
+
+            String req = "SELECT * FROM `alluser` WHERE login = '" + s.getLogin() + "'";
+            pst = connection.prepareStatement(req);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+
+    }
+
     public AllUsers recherche(AllUsers s) {
         //AllUsers[] tab = new AllUsers[50];
-        AllUsers u= new AllUsers();
-        int i=0;
+        AllUsers u = new AllUsers();
+        int i = 0;
         try {
-            
-            String req ="SELECT * FROM `alluser` WHERE login = '"+s.getLogin()+"'";
+
+            String req = "SELECT * FROM `alluser` WHERE login = '" + s.getLogin() + "'";
             pst = connection.prepareStatement(req);
-           
+
             ResultSet rs = pst.executeQuery();
-            while (rs.next()){
-                u = new AllUsers(rs.getInt(1),rs.getString(2), 
-                        rs.getString(3), 
+            while (rs.next()) {
+                u = new AllUsers(rs.getInt(1), rs.getString(2),
+                        rs.getString(3),
                         rs.getString(4));
                 i++;
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return u;
-        
+
 //        AllUsers u = new AllUsers();
 //        try {
 //
@@ -112,59 +118,66 @@ public class AllUsersDAO {
 //        }
 //
 //        return u;
-
     }
 
-    public void modifier(int i) {
-
+    public boolean modifierPassword(AllUsers u) {
+        try {
+            String req = "UPDATE `alluser` SET `mdp`=? WHERE `id` = ?;";
+            pst = connection.prepareStatement(req);
+            pst.setString(1, u.getMdp());
+            pst.setInt(2, u.getId());
+            pst.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
-    
+
     /**
      *
      */
-    public ArrayList<AllUsers> afficherTout(){
+    public ArrayList<AllUsers> afficherTout() {
         ArrayList<AllUsers> listeUsers = new ArrayList<AllUsers>();
         try {
-            int i=0;
-            
+            int i = 0;
+
             AllUsers u;
-            
-            String req ="SELECT * FROM `alluser`";
+
+            String req = "SELECT * FROM `alluser`";
             pst = connection.prepareStatement(req);
-           
+
             ResultSet rs = pst.executeQuery();
-            
-            
-            while (rs.next()){
-                u = new AllUsers(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
-                
+
+            while (rs.next()) {
+                u = new AllUsers(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+
                 listeUsers.add(u);
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return  listeUsers;
+        return listeUsers;
     }
-    
-    public AllUsers verifier(String log, String pass){
-            
-        
+
+    public AllUsers verifier(String log, String pass) {
+
         try {
-            String req ="SELECT * FROM `alluser` WHERE `login` like '"+log+"' and `mdp` like '"+pass+"'";
+            String req = "SELECT * FROM `alluser` WHERE `login` like '" + log + "' and `mdp` like '" + pass + "'";
             pst = connection.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
             AllUsers u;
-            if (rs.next()){
-             u = new AllUsers(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
-             return u;   
+            if (rs.next()) {
+                u = new AllUsers(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                return u;
             }
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
+
 }
