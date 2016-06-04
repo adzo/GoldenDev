@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guiMedecin.FXMLAjoutMedecinController">
+   <children>
+      <TextField fx:id="nom" layoutX="233.0" layoutY="43.0" promptText="Nom" />
+      <TextField fx:id="prenom" layoutX="233.0" layoutY="83.0" promptText="Prenom" />
+      <TextField fx:id="cin" layoutX="233.0" layoutY="125.0" promptText="CIN" />
+      <TextField fx:id="adress" layoutX="233.0" layoutY="167.0" promptText="Adress" />
+      <DatePicker fx:id="dateNaissance" layoutX="221.0" layoutY="218.0" promptText="Date de naissance" />
+      <Button fx:id="submit" layoutX="276.0" layoutY="265.0" mnemonicParsing="false" onAction="#ajouterMedecin" text="Submit" />
+      <Label fx:id="targetText" layoutX="191.0" layoutY="314.0" prefHeight="22.0" prefWidth="219.0" textFill="RED" />
+   </children>
+</AnchorPane>

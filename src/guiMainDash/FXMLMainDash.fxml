@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiMainDash.FXMLMainDashController">
+   <children>
+      <AnchorPane fx:id="Lock" prefHeight="395.0" prefWidth="592.0" />
+      <AnchorPane fx:id="menu" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TabPane fx:id="tabPane" layoutX="92.0" layoutY="22.0" maxWidth="1.7976931348623157E308" prefHeight="379.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tab" text="Untitled Tab 1" />
+              </tabs>
+            </TabPane>
+            <Button fx:id="showUsers" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" onAction="#afficherUsers" text="All Users" />
+         </children>
+      </AnchorPane>
+      <Button mnemonicParsing="false" onAction="#changeView" text="CHange View" />
+      <Label layoutX="315.0" layoutY="425.0" text="Time: " />
+      <Label fx:id="labelTime" layoutX="363.0" layoutY="425.0" text="Label" />
+      <Label fx:id="connectedId" layoutX="14.0" layoutY="425.0" prefHeight="14.0" prefWidth="251.0" text="Label" />
+      
+   </children>
+</AnchorPane>
