@@ -5,10 +5,17 @@
  */
 package IDao;
 
+import entities.User;
+import java.util.ArrayList;
+
 /**
  *
  * @author AD ZO
  */
 public interface InterfaceUserDAO {
-    
+    public boolean add(User u);
+    public boolean delete();
+    public boolean update(User u);
+    public User search(User u);
+    public ArrayList<User> afficherTout();
 }
