@@ -101,6 +101,7 @@ public class UserDAO implements InterfaceUserDAO {
         return u;
     }
 
+    @Override
     public ArrayList<User> afficherTout() {
         ArrayList<User> listeUsers = new ArrayList<>();
         try {
