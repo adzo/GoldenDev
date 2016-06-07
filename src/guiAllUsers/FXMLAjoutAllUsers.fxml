@@ -29,10 +29,11 @@
         <ComboBox fx:id="typeUser" layoutX="50.0" layoutY="200.0" prefHeight="29.0" prefWidth="150.0" >
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Arbitre" />
+                    <String fx:value="arbitre" />
                     <String fx:value="Medecin" />
                     <String fx:value="Joueur"/>
                     <String fx:value="User"/>
+                    <String fx:value="ResponsableAD"/>
                 </FXCollections>
             </items>
             <value>

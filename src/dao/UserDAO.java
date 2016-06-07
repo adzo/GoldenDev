@@ -61,9 +61,7 @@ public class UserDAO implements InterfaceUserDAO {
             AllUsersDAO p = new AllUsersDAO();
             pst = connection.prepareStatement(req);
             pst.setInt(1, AllUsers.modifiedUser.getId());
-            pst.executeQuery();
-            //Declancher la suppression de la table AllUsers ensuite...
-            p.supprimer();
+            pst.executeUpdate();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,7 +105,7 @@ public class UserDAO implements InterfaceUserDAO {
         try {
             int i = 0;
             User u;
-            String req = "SELECT * FROM `alluser`";
+            String req = "SELECT * FROM `user`";
             pst = connection.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {

@@ -67,21 +67,21 @@ public class FXMLMainDashController implements Initializable {
 //        menu.setVisible(true);
 //       
         showUsers.setDisable(true);
-        connectedId.setText("Login: "+ AllUsers.connected.getLogin()+"   |   Privilège : "+AllUsers.connected.getType());
+       // connectedId.setText("Login: "+ AllUsers.connected.getLogin()+"   |   Privilège : "+AllUsers.connected.getType());
 
         //Time bar
-        final DateFormat dateFormat;
-        dateFormat = DateFormat.getDateTimeInstance(); 
-        Timeline timeline;  
-
-        timeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), (ActionEvent event) -> {
-            final Calendar cal = Calendar.getInstance();
-            
-            labelTime.setText("  ||   Date :   " +dateFormat.format(cal.getTime()));
-               
-        }));
-               timeline.setCycleCount(Animation.INDEFINITE);  
-               timeline.play(); 
+//        final DateFormat dateFormat;
+//        dateFormat = DateFormat.getDateTimeInstance(); 
+//        Timeline timeline;  
+//
+//        timeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), (ActionEvent event) -> {
+//            final Calendar cal = Calendar.getInstance();
+//            
+//            labelTime.setText("  ||   Date :   " +dateFormat.format(cal.getTime()));
+//               
+//        }));
+//               timeline.setCycleCount(Animation.INDEFINITE);  
+//               timeline.play(); 
 
         //Setting the window draggble
 //         scene.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -109,7 +109,7 @@ public class FXMLMainDashController implements Initializable {
 
     public void afficherUsers() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/guiAfficherAllUsers/FXMLAfficherAllUsers.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/guiAllUsers/FXMLAfficherAllUsers.fxml"));
             tab.setContent(root);
             tab.setText("Liste des users");
             tabPane.setVisible(true);

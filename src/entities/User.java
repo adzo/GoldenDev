@@ -1,6 +1,7 @@
 
 package entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -13,7 +14,7 @@ public class User {
     private String adresse;
     private int tel;
     private String mail;
-
+    public static java.util.List<User> listes;
     public User(int idUser, String nom, String prenom, int cin, Date dateNaissance, String adresse, int tel, String mail) {
         this.idUser = idUser;
         this.nom = nom;
@@ -23,6 +24,7 @@ public class User {
         this.adresse = adresse;
         this.tel = tel;
         this.mail = mail;
+        listes = new ArrayList<>();
     }
 
     public User() {

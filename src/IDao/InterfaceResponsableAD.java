@@ -5,14 +5,14 @@
  */
 package IDao;
 
-import entities.Medecin;
+import entities.ResponsableAd;
 
 /**
  *
  * @author AD ZO
  */
-public interface InterfaceMedecinDAO {
-    public boolean add(Medecin m);
+public interface InterfaceResponsableAD {
+    public boolean add(ResponsableAd r);
     public boolean delete();
-    public boolean update(Medecin m);
+    public boolean update(ResponsableAd r);
 }

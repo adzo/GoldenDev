@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiUser.FXMLAfficherUserController">
+   <children>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d9d9d900" height="200.0" layoutX="309.0" layoutY="16.0" stroke="#000000cf" strokeType="INSIDE" width="282.0" />
+      <TableView fx:id="tableau" onMouseClicked="#selectedElement" prefHeight="400.0" prefWidth="300.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="37.0" text="ID" />
+          <TableColumn fx:id="nom" prefWidth="111.0" text="NOM" />
+            <TableColumn fx:id="prenom" prefWidth="151.0" text="Prenom" />
+        </columns>
+      </TableView>
+      <Label layoutX="323.0" layoutY="30.0" text="Date de Naissance :" />
+      <Label fx:id="birth" layoutX="437.0" layoutY="30.0" prefHeight="14.0" prefWidth="146.0" text="Label" />
+      <Label layoutX="323.0" layoutY="60.0" text="Adresse :" />
+      <Label layoutX="323.0" layoutY="120.0" text="Cin :" />
+      <Label fx:id="cin" layoutX="437.0" layoutY="120.0" prefHeight="14.0" prefWidth="146.0" text="Label" />
+      <Label layoutX="323.0" layoutY="150.0" text="Telephone :" />
+      <Label fx:id="tel" layoutX="437.0" layoutY="150.0" prefHeight="14.0" prefWidth="146.0" text="Label" />
+      <Label layoutX="323.0" layoutY="180.0" text="E-mail :" />
+      <Label fx:id="mail" layoutX="437.0" layoutY="180.0" prefHeight="14.0" prefWidth="146.0" text="Label" />
+      <Label fx:id="adresse" alignment="TOP_LEFT" layoutX="437.0" layoutY="60.0" prefHeight="50.0" prefWidth="146.0" text="Label" wrapText="true" />
+   </children>
+</AnchorPane>

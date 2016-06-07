@@ -13,6 +13,6 @@ import entities.Arbitre;
  */
 public interface InterfaceArbitreDAO {
     public boolean add(Arbitre a);
-    public boolean delete(Arbitre a);
+    public boolean delete();
     public boolean update(Arbitre a);
 }

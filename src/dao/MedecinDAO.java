@@ -7,6 +7,7 @@ package dao;
 
 import IDao.InterfaceMedecinDAO;
 import com.mysql.jdbc.Connection;
+import entities.AllUsers;
 import entities.Medecin;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -48,9 +49,20 @@ public class MedecinDAO implements InterfaceMedecinDAO{
     }
 
     @Override
-    public boolean delete(Medecin m) {
-    return true;
+    public boolean delete() {
+        try {
+            String req = "DELETE FROM `medecin` WHERE `idMedecin` =  ? ";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1, AllUsers.modifiedUser.getId());
+            pst.executeUpdate(); //execution de la requête...
+
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ArbitreDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
+
 
     @Override
     public boolean update(Medecin m) {

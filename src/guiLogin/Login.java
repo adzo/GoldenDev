@@ -25,8 +25,6 @@ public class Login extends Application {
     
         public double xOffset;
         public double yOffset;
-//    public Stage stage1,stage2;
-//    public AdminMainDashboard v = new AdminMainDashboard();
     @Override
     public void start(Stage loginStage) throws IOException {
         

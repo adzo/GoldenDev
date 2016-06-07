@@ -20,6 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -99,6 +100,9 @@ public class FXMLAjoutAllUsersController implements Initializable {
                         System.out.println(AllUsers.modifiedUser);
 
                         textTarget.setText("Utilisateur ajouté");
+                        Stage stage =  (Stage) ((Node) (event.getSource())).getScene().getWindow();
+                        stage.fireEvent(new WindowEvent(stage,WindowEvent.WINDOW_CLOSE_REQUEST));
+                        ((Node) (event.getSource())).getScene().getWindow().hide();
                         if (type.equals("Medecin"))  {
                             this.ouvrirAjoutMedecin(event);
                         }

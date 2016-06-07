@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class AllUsersDAO {
 
-    PreparedStatement pst; //l'entité qui gère la requête
+    PreparedStatement pst, pst1; //l'entité qui gère la requête
     Connection connection;
 
     public AllUsersDAO() {
@@ -43,8 +43,38 @@ public class AllUsersDAO {
         }
     }
 
-    public void supprimer() {
+    public boolean supressionCascade() {
+        
+            String fieldName = "id";
 
+            switch (AllUsers.modifiedUser.getType()) {
+                case "user":
+                    fieldName = "idUser";
+                    UserDAO udao = new UserDAO();
+                    udao.delete();
+                case "arbitre":
+                    fieldName = "idArbitre";
+                    ArbitreDAO adao = new ArbitreDAO();
+                    adao.delete();
+                case "responsableAD":
+                    fieldName = "idResponsable";
+                    ResponsableAdDAO rdao = new ResponsableAdDAO();
+                    rdao.delete();
+                case "medecin":
+                    fieldName = "idMedecin";
+                    MedecinDAO mdao = new MedecinDAO();
+                    mdao.delete();
+                case "Joueur":
+                    fieldName = "idJoueur";
+                    JoueurDAO jdao = new JoueurDAO();
+                    jdao.delete();
+            } 
+       return false;
+    }
+
+    public void supprimer() {
+        this.supressionCascade();
+        {
         try {
             String req = "DELETE FROM `alluser` WHERE `id` = ?";
             pst = connection.prepareStatement(req);
@@ -54,7 +84,8 @@ public class AllUsersDAO {
         } catch (SQLException ex) {
             Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        }
+        //else System.out.println("Problem de supression");
     }
 
     public boolean existe(AllUsers s) {
