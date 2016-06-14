@@ -30,7 +30,17 @@ public class ResponsableAdDAO implements InterfaceResponsableAD {
     
     @Override
     public boolean add(ResponsableAd r){
-        return true;
+        try {
+            String req = "INSERT INTO `responsablead`(`idResponsable`) VALUES (?)";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1, r.getIdResponsable());
+            pst.executeUpdate();
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsableAdDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
     
     @Override

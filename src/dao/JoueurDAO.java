@@ -31,7 +31,17 @@ public class JoueurDAO implements InterfaceJoueurDAO {
 
     @Override
     public boolean add(Joueur j) {
-    return true;
+        try {
+            String req = "INSERT INTO `joueur`(`idJoueur`) VALUES (?)";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1, j.getIdJoueur());
+            pst.executeUpdate();
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(JoueurDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override

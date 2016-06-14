@@ -6,7 +6,17 @@
 package guiAllUsers;
 
 import dao.AllUsersDAO;
+import dao.ArbitreDAO;
+import dao.JoueurDAO;
+import dao.MedecinDAO;
+import dao.ResponsableAdDAO;
+import dao.UserDAO;
 import entities.AllUsers;
+import entities.Arbitre;
+import entities.Joueur;
+import entities.Medecin;
+import entities.ResponsableAd;
+import entities.User;
 import guiMedecin.AjoutMedecin;
 import java.io.IOException;
 import java.net.URL;
@@ -99,6 +109,46 @@ public class FXMLAjoutAllUsersController implements Initializable {
                         AllUsers.modifiedUser = p.recherche(s);
                         System.out.println(AllUsers.modifiedUser);
                         textTarget.setText("Utilisateur ajouté");
+                        //Ajout dans les differentes tables...
+                        switch (type){
+                            case "arbitre":
+                                Arbitre a = new Arbitre();
+                                a.setIdArbitre(AllUsers.modifiedUser.getId());
+                                ArbitreDAO adao = new ArbitreDAO();
+                                adao.add(a);
+                                break;
+                            case "Joueur":
+                                Joueur j = new Joueur();
+                                j.setIdJoueur(AllUsers.modifiedUser.getId());
+                                JoueurDAO jdao = new JoueurDAO();
+                                jdao.add(j);
+                                break;
+                            case "ResponsableAD":
+                                ResponsableAd r = new ResponsableAd();
+                                r.setIdResponsable(AllUsers.modifiedUser.getId());
+                                ResponsableAdDAO rdao = new ResponsableAdDAO();
+                                rdao.add(r);
+                                break;
+                            case "User" :
+                                User u = new User();
+                                u.setIdUser(AllUsers.modifiedUser.getId());
+                                UserDAO udao = new UserDAO();
+                                udao.add(u);
+                                break;
+                            case "Medecin" : 
+                                Medecin m = new Medecin();
+                                m.setIdMedecin(AllUsers.modifiedUser.getId());
+                                MedecinDAO mdao = new MedecinDAO();
+                                mdao.add(m);
+                                break;
+                            default: break;
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
                         Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
                         stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
                     } else {

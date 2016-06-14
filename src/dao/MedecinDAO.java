@@ -32,7 +32,7 @@ public class MedecinDAO implements InterfaceMedecinDAO{
     @Override
     public boolean add(Medecin m) {
         try {
-            String req = "INSERT INTO `medecin` VALUES (?,?,?,?,?,?)";
+            String req = "INSERT INTO `medecin` (`idMedecin`, `nom`, `prenom`, `dateNaissance`, `cin`, `adresse`)  VALUES (?,?,?,?,?,?)";
             pst = connection.prepareStatement(req);
             pst.setInt(1,m.getIdMedecin() );
             pst.setString(2,m.getNom() );
@@ -40,6 +40,7 @@ public class MedecinDAO implements InterfaceMedecinDAO{
             pst.setObject(4, m.getDateNaissance() );
             pst.setInt(5, m.getCin() );
             pst.setString(6, m.getAdresse());
+            
             pst.executeUpdate();//Exécution de la requête
             return true;
         } catch (SQLException ex) {

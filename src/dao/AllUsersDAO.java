@@ -31,6 +31,7 @@ public class AllUsersDAO {
     }
 
     public void ajouter(AllUsers u) {
+        
         try {
             String req = "INSERT INTO `alluser`( `login`, `mdp`,`type`) VALUES (?,?,?)";
             pst = connection.prepareStatement(req);
@@ -41,6 +42,7 @@ public class AllUsersDAO {
         } catch (SQLException ex) {
             Logger.getLogger(AllUsersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+     
     }
 
     public boolean supressionCascade() {
@@ -64,7 +66,7 @@ public class AllUsersDAO {
                     fieldName = "idMedecin";
                     MedecinDAO mdao = new MedecinDAO();
                     mdao.delete();
-                case "Joueur":
+                case "joueur":
                     fieldName = "idJoueur";
                     JoueurDAO jdao = new JoueurDAO();
                     jdao.delete();
@@ -73,6 +75,7 @@ public class AllUsersDAO {
     }
 
     public void supprimer() {
+        if (!AllUsers.modifiedUser.getType().equals("admin")){
         this.supressionCascade();
         {
         try {
@@ -87,6 +90,9 @@ public class AllUsersDAO {
         }
         //else System.out.println("Problem de supression");
     }
+else
+            System.out.println("Admin can't be deleted...");
+}
 
     public boolean existe(AllUsers s) {
         try {
