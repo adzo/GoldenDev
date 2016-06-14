@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -32,9 +33,10 @@
         </rowConstraints>
          <children>
             <Button mnemonicParsing="false" onAction="#verifierLogin" prefHeight="28.0" prefWidth="56.0" text="Sing in" />
-            <Button id="cancelButton" mnemonicParsing="false" onAction="#close" prefHeight="27.0" prefWidth="58.0" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+            <Button id="cancelButton" mnemonicParsing="false" onAction="#close" prefHeight="27.0" prefWidth="58.0" text="Quit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
          </children>
       </GridPane>
       <Label fx:id="textTarget" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="150.0" prefHeight="27.0" prefWidth="232.0" textFill="RED" />
+      <ImageView fx:id="logo" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

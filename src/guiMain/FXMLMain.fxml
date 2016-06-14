@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -8,115 +10,52 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1150.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guiMain.FXMLMainController">
+<AnchorPane id="AnchorPane" maxHeight="675.0" maxWidth="1150.0" minHeight="675.0" minWidth="1150.0" prefHeight="675.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiMain.FXMLMainController">
    <children>
-      <BorderPane prefHeight="700.0" prefWidth="1150.0">
-         <top>
-            <GridPane BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="689.0" minWidth="10.0" prefWidth="689.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="565.0" minWidth="10.0" prefWidth="461.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#2197ff08" height="33.0" stroke="BLACK" strokeType="INSIDE" width="687.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="121.0" text="Home" GridPane.halignment="CENTER" />
-                        <MenuButton mnemonicParsing="false" prefHeight="22.0" prefWidth="130.0" text="Settings" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-                          <items>
-                            <MenuItem mnemonicParsing="false" text="Action 1" />
-                            <MenuItem mnemonicParsing="false" text="Action 2" />
-                          </items>
-                        </MenuButton>
-                        <MenuButton mnemonicParsing="false" prefHeight="22.0" prefWidth="130.0" text="Profile" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
-                          <items>
-                            <MenuItem mnemonicParsing="false" text="Action 1" />
-                            <MenuItem mnemonicParsing="false" text="Action 2" />
-                          </items>
-                        </MenuButton>
-                        <Button fx:id="gestionMenu" mnemonicParsing="false" prefHeight="22.0" prefWidth="132.0" text="Gestion" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="130.0" text="About" GridPane.columnIndex="4" />
-                     </children>
-                  </GridPane>
-                  <GridPane GridPane.columnIndex="1">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="307.3333740234375" minWidth="10.0" prefWidth="302.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="19.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.3333740234375" minWidth="10.0" prefWidth="19.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="5.0" minHeight="1.0" prefHeight="1.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="-" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#closePlatform" prefHeight="22.0" prefWidth="16.0" text="x" textAlignment="CENTER" GridPane.columnIndex="3" />
-                     </children>
-                  </GridPane>
-               </children>
-            </GridPane>
-         </top>
+      <BorderPane maxHeight="700.0" maxWidth="1150.0" prefHeight="675.0" prefWidth="1150.0">
          <bottom>
-            <Pane prefHeight="70.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="buttomPane" prefHeight="25.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#1f93ff00" height="10.0" stroke="BLACK" strokeType="INSIDE" width="1120.0" x="15.0" />
-                  <GridPane layoutX="5.0" prefHeight="60.0" prefWidth="1140.0">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="922.0" minWidth="10.0" prefWidth="131.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="922.0" minWidth="10.0" prefWidth="393.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="922.0" minWidth="10.0" prefWidth="103.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="560.0" minWidth="10.0" prefWidth="524.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label fx:id="dateAndTime" alignment="CENTER_RIGHT" text="Date and Time" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="status" text="Admin" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="Session" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="connectedNom" text="Nom                  :" GridPane.valignment="BOTTOM">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="connectedPrenom" text="Prenom              :" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </GridPane>
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#03020206" height="25.0" stroke="BLACK" strokeType="INSIDE" width="1150.0" />
+                  <Label fx:id="dateAndTime" alignment="CENTER_RIGHT" layoutX="870.0" prefHeight="25.0" prefWidth="280.0" textAlignment="RIGHT" textOverrun="CLIP">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" prefHeight="25.0" prefWidth="150.0" />
                </children>
+               
             </Pane>
          </bottom>
+         <left>
+            <Pane fx:id="leftPane" prefHeight="600.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="600.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <Pane fx:id="centerPane" prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle fill="WHITE" height="600.0" stroke="TRANSPARENT" strokeType="INSIDE" width="900.0" />
+               </children>
+            </Pane>
+         </center>
+         <top>
+            <Pane fx:id="topPane" prefHeight="50.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#21202009" height="50.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="1150.0" />
+                  <ImageView fx:id="closeImage" fitHeight="25.0" fitWidth="25.0" layoutX="1120.0" layoutY="12.0" onMouseClicked="#closePlatform" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="900.0" layoutY="10.0" prefHeight="30.0" prefWidth="215.0" text="TFT - By GoldenDev - V 1.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="logo" fitHeight="25.0" fitWidth="25.0" layoutX="870.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               
+            </Pane>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>

@@ -47,15 +47,10 @@ public class ArbitreDAO implements InterfaceArbitreDAO {
 //        
 
         try {
-            String req = "INSERT INTO `arbitre` VALUES (?,?,?,?,?,?,?)";
+            String req = "INSERT INTO `arbitre` (`idArbitre`) VALUES (?)";
             pst = connection.prepareStatement(req);
             pst.setInt(1, a.getIdArbitre());
-            pst.setString(2, a.getNom());
-            pst.setString(3, a.getPrenom());
-            pst.setObject(4, a.getDateNaissance());
-            pst.setInt(5, a.getCin());
-            pst.setString(6, a.getAdresse());
-            pst.setString(7, a.getCategorie());
+            
 
             pst.executeUpdate();//Exécution de la requête
             return true;

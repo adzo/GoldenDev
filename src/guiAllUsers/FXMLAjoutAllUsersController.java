@@ -148,7 +148,7 @@ public class FXMLAjoutAllUsersController implements Initializable {
                         
                         
                         
-                        
+                        AllUsers.modifiedUser = null;
                         Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
                         stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
                     } else {

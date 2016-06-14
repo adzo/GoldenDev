@@ -152,6 +152,7 @@ public class FXMLGuiAllUsersController implements Initializable {
                 AllUsersDAO p = new AllUsersDAO();
                 p.supprimer();
                 this.reloadTable();
+                AllUsers.modifiedUser = null;
             } else {
                 // ... user chose CANCEL or closed the dialog
             }

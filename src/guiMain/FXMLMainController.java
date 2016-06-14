@@ -19,6 +19,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -37,62 +39,43 @@ public class FXMLMainController implements Initializable {
     private Label connectedPrenom;
     @FXML
     private Button gestionMenu;
+    @FXML
+    private ImageView closeImage;
+    @FXML
+    private ImageView logo;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        Image ico = new Image("resources/Icons/Disconnect2.png");
+        closeImage.setImage(ico);
+        Image ico2 = new Image("resources/Icons/Main_TFT.png");
+        logo.setImage(ico2);
         /**
-         *
          * * Setting the TimeBar
-         *
          */
         final DateFormat dateFormat;
         dateFormat = DateFormat.getDateTimeInstance();
         Timeline timeline;
-
         timeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), (ActionEvent event) -> {
             final Calendar cal = Calendar.getInstance();
-
             dateAndTime.setText("  ||   Date :   " + dateFormat.format(cal.getTime()));
-
-            switch (AllUsers.connected.getType()) {
-                case ("admin"):
-                    break;
-                default: {
-                    gestionMenu.setVisible(false);
-                }
-            }
-
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-
         /**
-         *
-         * Setting the InfoBar
-         *
+         * *Setting the InfoBar
          */
-        status.setText(AllUsers.connected.getType());
-        connectedNom.setText(AllUsers.connected.getLogin());
-        connectedPrenom.setText(AllUsers.connected.getMdp());
+        status.setText(AllUsers.connected.getType() + " |  ID = '" + AllUsers.connected.getId() + "'");
         /**
-         *
-         * Initialisation des accés
-         *
+         * Initialisation of access
          */
-
     }
 
     @FXML
     public void closePlatform() {
         Platform.exit();
-    }
-
-    @FXML
-    public void reduirePlatform() {
-
     }
 }

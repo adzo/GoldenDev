@@ -22,7 +22,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -32,42 +33,24 @@ import javafx.stage.Stage;
  */
 public class FXMLLoginController implements Initializable {
 
-    public static KeyEvent keyPressed;
-    public static Node node;
-
     @FXML
     private TextField login;
     @FXML
     private PasswordField pass;
     @FXML
     private Label textTarget;
-
+    @FXML
+    private ImageView logo;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+        Image ico = new Image("resources/Icons/Main_TFT.png");
+        logo.setImage(ico);
     }
-
-//       login.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//        @Override
-//        public void handle(KeyEvent keyEvent) {
-//            if (keyEvent.getCode() == KeyCode.ENTER)  {
-//                ActionEvent event = new ActionEvent();
-//                 this.verifierLogin(event);  
-//            }
-//    }
-//});
-//    public void keyPressed(KeyEvent kEvent) throws IOException {
-//        if (kEvent.getCode() == KeyCode.ENTER) {
-//            ActionEvent event = new ActionEvent();
-//            
-//            this.verifierLogin(event);
-//            keyPressed = kEvent;
-//        }
-//    }
 
     public void verifierLogin(ActionEvent event) throws IOException {
 
@@ -95,26 +78,18 @@ public class FXMLLoginController implements Initializable {
 
     public void ouvrirMain(ActionEvent event) {
         try {
-            
-                ((Node) (event.getSource())).getScene().getWindow().hide();
-            
+            ((Node) (event.getSource())).getScene().getWindow().hide();
             Stage mainDashboard = new Stage();
-            //mainDashboard.initStyle(StageStyle.UNDECORATED);
-            mainDashboard.setResizable(true);
             Main mainWindow = Main.getInstance();
-            //mainDashboard.initModality(Modality.APPLICATION_MODAL);
             mainWindow.start(mainDashboard);
             System.out.println(AllUsers.connected);
-
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public void quit() {
         Platform.exit();
-
     }
 
     @FXML
