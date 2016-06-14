@@ -12,9 +12,12 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -35,6 +38,8 @@ public class FXMLModifierPasswordController implements Initializable {
     private Button submit;
     
     public void updatePassword(ActionEvent event){
+        System.out.println(AllUsers.modifiedUser.toString());
+        
         String oldPass;
         String newPass1;
         String newPass2;
@@ -42,6 +47,7 @@ public class FXMLModifierPasswordController implements Initializable {
         oldPass = oldPassword.getText();
         newPass1 = newPassword1.getText();
         newPass2 = newPassword2.getText();
+        System.out.println(AllUsers.modifiedUser.getMdp());
         if (AllUsers.modifiedUser.getMdp().equals(oldPass)){
             //Traitement de mise a jour
             if(newPass1.equals(newPass2)){
@@ -49,6 +55,9 @@ public class FXMLModifierPasswordController implements Initializable {
                 AllUsers.modifiedUser.setMdp(newPass1);
                 AllUsersDAO p = new AllUsersDAO();
                 p.modifierPassword(AllUsers.modifiedUser);
+                Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+                stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
+                AllUsers.modifiedUser = null;
                 textTarget.setText("Password updated with success");
             }else {
                 textTarget.setText("Password doesn't match");
@@ -63,6 +72,7 @@ public class FXMLModifierPasswordController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
     
 }

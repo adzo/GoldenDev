@@ -7,22 +7,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiAllUsers.FXMLGuiAllUsersController" >
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiAllUsers.FXMLGuiAllUsersController">
    <children>
       <Pane layoutX="600.0" layoutY="29.0" prefHeight="200.0" prefWidth="120.0">
          <children>
             <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#ffffff00" height="191.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="120.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="43.0" layoutY="2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="35.0" />
             <Label alignment="CENTER" layoutX="43.0" layoutY="2.0" text="Control" textOverrun="CENTER_ELLIPSIS" />
-            <Button fx:id="add" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="93.0" text="Ajouter" onAction="#addAllUsers" />
-            <Button fx:id="update" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="93.0" text="Modifier" />
-            <Button fx:id="delete" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="93.0" text="Supprimer" onAction="#deleteAllUsers" />
+            <Button fx:id="add" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#addAllUsers" prefHeight="29.0" prefWidth="93.0" text="Ajouter" />
+            <Button fx:id="update" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" onAction="#upDateAllUser" prefHeight="29.0" prefWidth="93.0" text="Modifier" />
+            <Button fx:id="delete" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" onAction="#deleteAllUsers" prefHeight="29.0" prefWidth="93.0" text="Supprimer" />
          </children>
       </Pane>
-      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab fx:id="subContainer" text="Untitled Tab 1" />
-        </tabs>
-      </TabPane>
+      <Pane fx:id="preview" prefHeight="400.0" prefWidth="600.0" />
+      <Label fx:id="target" alignment="TOP_LEFT" layoutX="607.0" layoutY="254.0" prefHeight="62.0" prefWidth="105.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
    </children>
 </AnchorPane>

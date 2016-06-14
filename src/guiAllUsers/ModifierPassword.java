@@ -36,8 +36,7 @@ public class ModifierPassword extends Application {
     
     @Override
     public void start(Stage modifierPassword) {
-        AllUsers u = new AllUsers(1, "adzo", "123456", "arbitre");
-        AllUsers.modifiedUser = u;
+        
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLModifierPassword.fxml"));
             

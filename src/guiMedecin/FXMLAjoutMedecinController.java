@@ -84,7 +84,7 @@ public class FXMLAjoutMedecinController implements Initializable {
         MedecinDAO p = new MedecinDAO();
         p.add(m);
         targetText.setText("Medecin ajouté");
-        
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
     
     

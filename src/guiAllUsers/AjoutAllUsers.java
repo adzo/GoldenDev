@@ -24,11 +24,9 @@ public class AjoutAllUsers extends Application {
     public void start(Stage ajoutAllUsers) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLAjoutAllUsers.fxml"));
-            
             Scene scene = new Scene(root);
             ajoutAllUsers.setTitle("Ajout d'un utilisateur");
             ajoutAllUsers.setScene(scene);
-            
             ajoutAllUsers.setResizable(false);
             ajoutAllUsers.show();
         } catch (IOException ex) {

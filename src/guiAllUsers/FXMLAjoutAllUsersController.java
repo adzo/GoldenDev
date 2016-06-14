@@ -98,44 +98,37 @@ public class FXMLAjoutAllUsersController implements Initializable {
                         p.ajouter(s);
                         AllUsers.modifiedUser = p.recherche(s);
                         System.out.println(AllUsers.modifiedUser);
-
                         textTarget.setText("Utilisateur ajouté");
-                        Stage stage =  (Stage) ((Node) (event.getSource())).getScene().getWindow();
-                        stage.fireEvent(new WindowEvent(stage,WindowEvent.WINDOW_CLOSE_REQUEST));
-                        ((Node) (event.getSource())).getScene().getWindow().hide();
-                        if (type.equals("Medecin"))  {
-                            this.ouvrirAjoutMedecin(event);
-                        }
+                        Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+                        stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
                     } else {
                         textTarget.setText("Login Déja utilisé réessayer de nouveau!!");
-
                     }
-
                 } else {
                     textTarget.setText("Précisez votre type d'utilisateur");
                 }
             } else {
                 textTarget.setText("Password doesn't match");
             }
+        } else {
+            textTarget.setText("Champs manquants");
         }
-    
 
-    
-        else { textTarget.setText("Champs manquants");
     }
-        
-     
-}
 
+    public void nextStepAdd(ActionEvent event) throws IOException {
+        String type = (String) typeUser.getValue();
+        if (type.equals("medecin")) {
+            this.ouvrirAjoutMedecin(event);
+        }
+    }
 
-public void ouvrirAjoutMedecin(ActionEvent event) throws IOException{
+    public void ouvrirAjoutMedecin(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
         Stage ajoutMedecinDashboard = new Stage();
         ajoutMedecinDashboard.setResizable(true);
         AjoutMedecin mainWindow = AjoutMedecin.getInstance();
         mainWindow.start(ajoutMedecinDashboard);
-        System.out.println(AllUsers.connected);
-
     }
 
 }

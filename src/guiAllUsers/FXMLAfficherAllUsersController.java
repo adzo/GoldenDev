@@ -7,13 +7,20 @@ package guiAllUsers;
 
 import dao.AllUsersDAO;
 import entities.AllUsers;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -22,6 +29,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -54,10 +64,42 @@ public class FXMLAfficherAllUsersController implements Initializable {
      */
     @FXML
     public void selectedUser(MouseEvent event) {
+        if (event.getClickCount() == 1){
         AllUsers.modifiedUser = tableAllUsers.getSelectionModel().getSelectedItem();
         System.out.println(AllUsers.modifiedUser);
+        }else if (event.getClickCount() ==2){
+            AllUsers.modifiedUser = tableAllUsers.getSelectionModel().getSelectedItem();
+            this.ouvrirModifierPassword();
+            
+            System.out.println("Souris clické deux fois!!");
+        }
     }
 
+    public void ouvrirModifierPassword(){
+        try {
+            Stage modif = new Stage();
+            
+                    modif.setOnCloseRequest(new EventHandler<WindowEvent>() {
+             public void handle(WindowEvent we) {
+                
+                     refreshTable();
+                 
+            }
+        });
+            
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLModifierPassword.fxml"));
+            Scene scene = new Scene(root);
+            modif.setTitle("modifier mot de pass");
+            modif.setScene(scene);
+            modif.initModality(Modality.APPLICATION_MODAL);
+            modif.setResizable(false);
+            modif.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLAfficherAllUsersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     public void deleteAllUser() {
 
         Alert alert = new Alert(AlertType.CONFIRMATION);

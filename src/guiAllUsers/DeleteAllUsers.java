@@ -38,8 +38,7 @@ public class DeleteAllUsers extends Application {
     
     @Override
     public void start(Stage deleteAllUsers) {
-         AllUsers u = new AllUsers(5, "adzo", "123456", "arbitre");
-        AllUsers.modifiedUser = u;
+        
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLDeleteAllUsers.fxml"));
             

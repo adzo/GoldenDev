@@ -6,6 +6,7 @@
 package guiAllUsers;
 
 import dao.AllUsersDAO;
+import entities.AllUsers;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -29,6 +30,7 @@ public class FXMLDeleteAllUsersController implements Initializable {
     public void deleteAllUser(){
         AllUsersDAO p = new AllUsersDAO();
         p.supprimer();
+        AllUsers.modifiedUser = null;
     }
     
     public void cancel(ActionEvent event){
