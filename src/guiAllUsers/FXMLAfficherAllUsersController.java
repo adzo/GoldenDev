@@ -125,6 +125,8 @@ public class FXMLAfficherAllUsersController implements Initializable {
         u.listes = p.afficherTout();
         data = FXCollections.observableArrayList(u.listes);
         tableAllUsers.setItems(data);
+        final int size = tableAllUsers.getItems().size() -1;
+        tableAllUsers.scrollTo(size);
     }
 
     /**
@@ -140,6 +142,10 @@ public class FXMLAfficherAllUsersController implements Initializable {
         u.listes = p.afficherTout();
         data = FXCollections.observableArrayList(u.listes);
         tableAllUsers.setItems(data);
+        final int size = tableAllUsers.getItems().size() -1;
+        tableAllUsers.scrollTo(size);
+        
+      
 
     }
 
