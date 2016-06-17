@@ -9,13 +9,9 @@ import IDao.InterfaceArbitreDAO;
 import com.mysql.jdbc.Connection;
 import entities.AllUsers;
 import entities.Arbitre;
-import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.DataSource;
@@ -80,4 +76,29 @@ public class ArbitreDAO implements InterfaceArbitreDAO {
         return true;
     }
 
+    public String nomPrenomArbitre(int i){
+        String nom =null;
+        String prenom=null;
+        String res;
+        
+        String req ="SELECT  `nom`, `prenom` FROM `arbitre` WHERE `idArbitre` = ?";
+        try {
+            pst=connection.prepareStatement(req);
+        
+        pst.setInt(1,i);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+                nom = rs.getString(1);
+                prenom = rs.getString(2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ArbitreDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (nom == null) nom ="not defined";
+        
+        if (prenom == null) prenom = "not defined";
+        res = nom + ", "+prenom;
+        return res;
+    }
 }

@@ -10,6 +10,7 @@ import entities.AllUsers;
 import entities.Joueur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,6 +63,32 @@ public class JoueurDAO implements InterfaceJoueurDAO {
     @Override
     public boolean update(Joueur j) {
     return true;
+    }
+    
+    public String nomPrenomJoueur(int i){
+        String nom =null;
+        String prenom=null;
+        String res;
+        
+        String req ="SELECT  `nom`, `prenom` FROM `joueur` WHERE `idJoueur` = ?";
+        try {
+            pst=connection.prepareStatement(req);
+        
+        pst.setInt(1,i);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+                nom = rs.getString(1);
+                prenom = rs.getString(2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ArbitreDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (nom == null) nom ="not defined";
+        
+        if (prenom == null) prenom = "not defined";
+        res = nom + ", "+prenom;
+        return res;
     }
     
 }

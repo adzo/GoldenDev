@@ -41,6 +41,8 @@ public class FXMLLoginController implements Initializable {
     private Label textTarget;
     @FXML
     private ImageView logo;
+    @FXML
+    private ImageView loadingGif;
     
     /**
      * Initializes the controller class.
@@ -50,10 +52,15 @@ public class FXMLLoginController implements Initializable {
         // TODO
         Image ico = new Image("resources/Icons/Main_TFT.png");
         logo.setImage(ico);
+        Image load = new Image("resources/Icons/loading.gif");
+             //admin   + );
+        loadingGif.setImage(load);
+        loadingGif.setVisible(true);
+        
     }
 
     public void verifierLogin(ActionEvent event) throws IOException {
-
+        loadingGif.setVisible(false);
         String log = login.getText();
         //String typ;
         String password = pass.getText();
@@ -66,7 +73,7 @@ public class FXMLLoginController implements Initializable {
                 textTarget.setText(s.getType() + " connecté");
                 AllUsers.connected = s;
                 System.out.println(AllUsers.connected);
-
+                
                 this.ouvrirMain(event);
             } else {
                 textTarget.setText("Login erroné!!");
@@ -78,10 +85,11 @@ public class FXMLLoginController implements Initializable {
 
     public void ouvrirMain(ActionEvent event) {
         try {
-            ((Node) (event.getSource())).getScene().getWindow().hide();
+            
             Stage mainDashboard = new Stage();
             Main mainWindow = Main.getInstance();
             mainWindow.start(mainDashboard);
+            ((Node) (event.getSource())).getScene().getWindow().hide();
             System.out.println(AllUsers.connected);
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);

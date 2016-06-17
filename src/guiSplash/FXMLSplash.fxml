@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiSplash.FXMLSplashController">
+   <children>
+      <ImageView fx:id="background" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="25.0" layoutY="25.0" prefHeight="150.0" prefWidth="250.0">
+         <children>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#a6a6a66a" height="150.0" stroke="TRANSPARENT" strokeType="INSIDE" width="250.0" />
+            <VBox prefHeight="150.0" prefWidth="250.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="TFT">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="By Golden Dev">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="Equipe:">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="           SELMI Abdelaziz">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="           ARIBI Med Aziz">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="           BARAKET Sami">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="            JS Seif Eddine">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <ImageView fx:id="close" fitHeight="25.0" fitWidth="25.0" layoutX="275.0" onMouseClicked="#closeThis" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

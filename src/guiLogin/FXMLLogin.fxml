@@ -11,8 +11,8 @@
 
 <AnchorPane id="AnchorPane" prefHeight="246.0" prefWidth="241.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiLogin.FXMLLoginController">
    <children>
+      <ImageView fx:id="loadingGif" fitHeight="25.0" fitWidth="25.0" layoutX="105.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true" />
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#1f93ff00" height="250.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
-      <StackPane layoutY="2.0" prefHeight="248.0" prefWidth="241.0" />
       <TextField fx:id="login" layoutX="54.0" layoutY="47.0" prefHeight="30.0" prefWidth="134.0" promptText="Login">
          <font>
             <Font size="13.0" />
@@ -23,6 +23,9 @@
             <Font size="13.0" />
          </font>
       </PasswordField>
+      <Label fx:id="textTarget" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="150.0" prefHeight="27.0" prefWidth="232.0" textFill="RED" />
+      <ImageView fx:id="logo" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+      <StackPane layoutY="2.0" prefHeight="248.0" prefWidth="241.0" />
       <GridPane layoutX="54.0" layoutY="177.0" prefHeight="30.0" prefWidth="134.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="98.0" />
@@ -36,7 +39,5 @@
             <Button id="cancelButton" mnemonicParsing="false" onAction="#close" prefHeight="27.0" prefWidth="58.0" text="Quit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
          </children>
       </GridPane>
-      <Label fx:id="textTarget" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="150.0" prefHeight="27.0" prefWidth="232.0" textFill="RED" />
-      <ImageView fx:id="logo" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

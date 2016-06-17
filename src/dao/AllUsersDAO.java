@@ -58,7 +58,7 @@ public class AllUsersDAO {
                     fieldName = "idArbitre";
                     ArbitreDAO adao = new ArbitreDAO();
                     adao.delete();
-                case "responsableAD":
+                case "responsableadadmin    ":
                     fieldName = "idResponsable";
                     ResponsableAdDAO rdao = new ResponsableAdDAO();
                     rdao.delete();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
@@ -10,48 +11,142 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="675.0" maxWidth="1150.0" minHeight="675.0" minWidth="1150.0" prefHeight="675.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiMain.FXMLMainController">
+<AnchorPane id="AnchorPane" maxHeight="475.0" maxWidth="970.0" minHeight="475.0" minWidth="970.0" prefHeight="475.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiMain.FXMLMainController">
    <children>
-      <BorderPane maxHeight="700.0" maxWidth="1150.0" prefHeight="675.0" prefWidth="1150.0">
+      <BorderPane maxHeight="475.0" maxWidth="970.0" prefHeight="475.0" prefWidth="970.0">
          <bottom>
-            <Pane fx:id="buttomPane" prefHeight="25.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="buttomPane" prefHeight="25.0" prefWidth="970.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#03020206" height="25.0" stroke="BLACK" strokeType="INSIDE" width="1150.0" />
-                  <Label fx:id="dateAndTime" alignment="CENTER_RIGHT" layoutX="870.0" prefHeight="25.0" prefWidth="280.0" textAlignment="RIGHT" textOverrun="CLIP">
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#03020206" height="25.0" stroke="BLACK" strokeType="INSIDE" width="970.0" />
+                  <Label fx:id="dateAndTime" alignment="CENTER_RIGHT" layoutX="690.0" prefHeight="25.0" prefWidth="280.0" textAlignment="RIGHT" textOverrun="CLIP">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" prefHeight="25.0" prefWidth="150.0" />
+                  <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="410.0" prefHeight="25.0" prefWidth="150.0" />
+                  <Label fx:id="connectedNom" layoutX="6.0" layoutY="4.0" text="Label" />
                </children>
                
             </Pane>
          </bottom>
          <left>
-            <Pane fx:id="leftPane" prefHeight="600.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="leftPane" prefHeight="400.0" prefWidth="250.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="600.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="400.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#9497995c" height="40.0" layoutX="25.0" layoutY="5.0" mouseTransparent="true" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="15.0" text="MENU" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Accordion fx:id="userPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                    <panes>
+                      <TitledPane animated="false" text="untitled 1">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="untitled 2">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="untitled 3">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <Accordion fx:id="adminPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                    <panes>
+                      <TitledPane animated="false" text="Gestion">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="231.0" prefWidth="222.0" spacing="5.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#loadAllUsers" prefHeight="26.0" prefWidth="220.0" stylesheets="@../resources/CSS/MenuItems.css" text="All Users" />
+                                          <Button mnemonicParsing="false" onAction="#loadUsers" prefHeight="25.0" prefWidth="220.0" text="Users" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Match" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Formation" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Utilisateur et reservations">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="231.0" prefWidth="222.0" spacing="5.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Users" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Reservation" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" prefHeight="197.0" prefWidth="223.0" text="untitled 3">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
                </children>
             </Pane>
          </left>
          <center>
-            <Pane fx:id="centerPane" prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="centerPane" prefHeight="374.0" prefWidth="704.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle fill="WHITE" height="600.0" stroke="TRANSPARENT" strokeType="INSIDE" width="900.0" />
+                  <Rectangle fill="WHITE" height="400.0" stroke="TRANSPARENT" strokeType="INSIDE" width="720.0" />
                </children>
             </Pane>
          </center>
          <top>
-            <Pane fx:id="topPane" prefHeight="50.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="topPane" prefHeight="50.0" prefWidth="970.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#21202009" height="50.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="1150.0" />
-                  <ImageView fx:id="closeImage" fitHeight="25.0" fitWidth="25.0" layoutX="1120.0" layoutY="12.0" onMouseClicked="#closePlatform" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="900.0" layoutY="10.0" prefHeight="30.0" prefWidth="215.0" text="TFT - By GoldenDev - V 1.0">
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#21202009" height="50.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="970.0" />
+                  <ImageView fx:id="closeImage" fitHeight="25.0" fitWidth="25.0" layoutX="940.0" layoutY="12.0" onMouseClicked="#closePlatform" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="720.0" layoutY="10.0" prefHeight="30.0" prefWidth="215.0" text="TFT - By GoldenDev - V 1.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="logo" fitHeight="25.0" fitWidth="25.0" layoutX="870.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="logo" fitHeight="25.0" fitWidth="25.0" layoutX="690.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="changeLogin" fitHeight="25.0" fitWidth="25.0" layoutX="12.0" layoutY="12.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true" />
+                  <MenuBar layoutX="50.0" layoutY="12.0" prefHeight="25.0" prefWidth="600.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                              <Menu mnemonicParsing="false" text="Export">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Liste Joueur" />
+                                    <MenuItem mnemonicParsing="false" text="Liste Match" />
+                                </items>
+                              </Menu>
+                          <MenuItem mnemonicParsing="false" onAction="#closePlatform" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem fx:id="about" mnemonicParsing="false" onAction="#openSplash" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
                </children>
                
             </Pane>

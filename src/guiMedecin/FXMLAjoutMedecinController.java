@@ -8,8 +8,6 @@ package guiMedecin;
 import dao.MedecinDAO;
 import entities.AllUsers;
 import entities.Medecin;
-import guiLogin.FXMLLoginController;
-import guiMain.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -17,8 +15,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -65,6 +60,7 @@ public class FXMLAjoutMedecinController implements Initializable {
         Date dateT;
         LocalDate localDate;
         localDate = dateNaissance.getValue();
+        
         Calendar cal = Calendar.getInstance();
         
         cal.set(Calendar.MONTH, localDate.getMonthValue()-1);

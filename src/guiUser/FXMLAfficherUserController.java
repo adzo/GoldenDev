@@ -60,7 +60,9 @@ public class FXMLAfficherUserController implements Initializable {
     
     public void modifierContent(User u){
         Calendar cal = Calendar.getInstance();
+        if(u.getDateNaissance() != null){
         cal.setTime(u.getDateNaissance());
+        }
 //        final DateFormat dateFormat;
 //        dateFormat = DateFormat.getDateTimeInstance(); 
 //        
@@ -74,17 +76,38 @@ public class FXMLAfficherUserController implements Initializable {
         
         
         //Setting the fields : 
+        if(u.getCin() !=0){
         cin.setText(String.valueOf(u.getCin()));
+        }else{
+            cin.setText("Not defined");
+        }
         //birth.setText(dateFormat.format(cal.getTime()) );
+        if (u.getDateNaissance()!=null){
         birth.setText(dayOfTheWeek+" le "+jour+" "+month+" "+year);
+        }else{
+            birth.setText("Not defined");
+        }
+        if(u.getAdresse()!=null){
         adresse.setText(u.getAdresse());
+        }else{
+            adresse.setText("Not defined");
+        }
+        if(u.getMail()!=null){
         mail.setText(u.getMail());
+        }else{
+            mail.setText("Not defined");
+        }
+        if(u.getTel() != 0){
         tel.setText(String.valueOf(u.getTel()));
+        }else{
+            tel.setText("Not defined");
+        }
     }
     public void selectedElement(){
         u  = tableau.getSelectionModel().getSelectedItem();
         //System.out.println(u);
         modifierContent(u);
+        System.out.println(u.toString());
     }
     
     /**
