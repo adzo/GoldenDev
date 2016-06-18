@@ -7,6 +7,7 @@
 package entities;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Medecin {
  private String adresse ;
  private int telephone ;
  private String sexeMedecin ;
+ public static List<Medecin> listes;
 
     public Medecin() {
     }
