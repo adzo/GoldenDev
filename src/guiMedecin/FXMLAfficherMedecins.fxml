@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guiMedecin.FXMLAfficherMedecinsController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="300.0">
+         <children>
+            <TableView fx:id="tableau" prefHeight="400.0" prefWidth="300.0">
+              <columns>
+                <TableColumn fx:id="idM" prefWidth="44.0" text="ID" />
+                <TableColumn fx:id="nomM" prefWidth="127.0" text="Nom" />
+                  <TableColumn fx:id="prenomM" prefWidth="126.0" text="Prenom" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#1f93ff00" height="200.0" layoutX="325.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+      <Label layoutX="340.0" layoutY="40.0" text="Date de Naissance :" />
+      <Label layoutX="340.0" layoutY="99.0" text="CIN :" />
+      <Label layoutX="340.0" layoutY="154.0" text="Adresse :" />
+      <Label fx:id="dateN" alignment="TOP_LEFT" layoutX="415.0" layoutY="61.0" prefHeight="44.0" prefWidth="149.0" text="Label" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="cin" layoutX="415.0" layoutY="115.0" prefHeight="21.0" prefWidth="143.0" text="Label" />
+      <Label fx:id="adr" alignment="TOP_LEFT" layoutX="415.0" layoutY="165.0" prefHeight="51.0" prefWidth="149.0" text="Label" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
