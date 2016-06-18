@@ -11,13 +11,7 @@ import dao.MedecinDAO;
 import dao.ResponsableAdDAO;
 import dao.UserDAO;
 import entities.AllUsers;
-import entities.Arbitre;
-import entities.Joueur;
-import entities.Medecin;
-import entities.ResponsableAd;
-import entities.User;
 import guiLogin.Login;
-import guiSplash.Splash;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -33,7 +27,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -43,9 +36,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -147,6 +138,12 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
     }
     
+    public void loadMedecins() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/guiMedecin/FXMLAfficherMedecins.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        
+    }
 
 
     @FXML

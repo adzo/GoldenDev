@@ -70,7 +70,7 @@
                                           <Button mnemonicParsing="false" onAction="#loadUsers" prefHeight="25.0" prefWidth="220.0" text="Users" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Match" />
+                                          <Button mnemonicParsing="false" onAction="#loadMedecins" prefHeight="25.0" prefWidth="220.0" text="Medecins" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Formation" />
                                        </children>
                                        <padding>
