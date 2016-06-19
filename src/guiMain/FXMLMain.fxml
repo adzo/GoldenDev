@@ -71,7 +71,7 @@
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
                                           <Button mnemonicParsing="false" onAction="#loadMedecins" prefHeight="25.0" prefWidth="220.0" text="Medecins" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Formation" />
+                                          <Button mnemonicParsing="false" onAction="#loadResponsable" prefHeight="25.0" prefWidth="220.0" text="Responsable antidopage" />
                                        </children>
                                        <padding>
                                           <Insets top="5.0" />
