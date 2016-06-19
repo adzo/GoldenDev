@@ -7,6 +7,7 @@
 package entities;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -20,6 +21,7 @@ public class ResponsableAd {
    private int cin;
    private String adresse;
    private int telephone;
+   public static List<ResponsableAd> listes ;
 
     public ResponsableAd() {
     }
@@ -94,5 +96,6 @@ public class ResponsableAd {
     public String toString() {
         return "ResponsableAd{" + "idResponsable=" + idResponsable + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", cin=" + cin + ", adresse=" + adresse + ", telephone=" + telephone + '}';
     }
+    
    
 }
