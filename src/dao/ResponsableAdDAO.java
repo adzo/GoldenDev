@@ -12,6 +12,7 @@ import entities.ResponsableAd;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.DataSource;
@@ -88,6 +89,23 @@ public class ResponsableAdDAO implements InterfaceResponsableAD {
         if (prenom == null) prenom = "not defined";
         res = nom + ", "+prenom;
         return res;
+    }
+      public ArrayList<ResponsableAd> afficherTout() {
+        ArrayList<ResponsableAd> liste = new ArrayList<>();
+        ResponsableAd r;
+        try {
+
+            String req = "SELECT * FROM `responsablead`";
+            pst = connection.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                r = new ResponsableAd(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getString(6),rs.getInt(7));
+                liste.add(r);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsableAdDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
     }
     
 }
