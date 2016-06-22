@@ -8,12 +8,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guiResponsable.FXMLAfficherResponsablesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiResponsable.FXMLAfficherResponsablesController">
    <children>
-      <Pane layoutX="7.0" layoutY="7.0" prefHeight="400.0" prefWidth="300.0">
+      <Pane prefHeight="400.0" prefWidth="300.0">
          <children>
-            <TableView fx:id="tableau" prefHeight="400.0" prefWidth="300.0">
+            <TableView fx:id="tableau" onMouseClicked="#selection" prefHeight="400.0" prefWidth="300.0">
               <columns>
                 <TableColumn fx:id="idR" prefWidth="48.0" text="ID" />
                 <TableColumn fx:id="nomR" prefWidth="120.0" text="NOM" />
@@ -32,17 +31,17 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="cin" alignment="TOP_LEFT" layoutX="375.0" layoutY="107.0" prefHeight="21.0" prefWidth="115.0" text="Label" wrapText="true">
+      <Label fx:id="cin" alignment="TOP_LEFT" layoutX="398.0" layoutY="105.0" prefHeight="21.0" prefWidth="115.0" text="Label" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="adr" alignment="TOP_LEFT" layoutX="403.0" layoutY="129.0" prefHeight="57.0" prefWidth="166.0" text="Label" wrapText="true">
+      <Label fx:id="adr" alignment="TOP_LEFT" layoutX="398.0" layoutY="136.0" prefHeight="57.0" prefWidth="166.0" text="Label" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="tel" alignment="TOP_LEFT" layoutX="418.0" layoutY="197.0" prefHeight="21.0" prefWidth="136.0" text="Label" wrapText="true">
+      <Label fx:id="tel" alignment="TOP_LEFT" layoutX="399.0" layoutY="195.0" prefHeight="21.0" prefWidth="136.0" text="Label" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
