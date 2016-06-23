@@ -144,6 +144,11 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
         
     }
+    public void loadResponsable()throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLAfficherResponsables.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+    }
 
 
     @FXML

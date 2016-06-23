@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiResponsable.FXMLAfficherResponsablesController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="300.0">
+         <children>
+            <TableView fx:id="tableau" onMouseClicked="#selection" prefHeight="400.0" prefWidth="300.0">
+              <columns>
+                <TableColumn fx:id="idR" prefWidth="48.0" text="ID" />
+                <TableColumn fx:id="nomR" prefWidth="120.0" text="NOM" />
+                  <TableColumn fx:id="prenomR" prefWidth="131.0" text="PRENOM" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#1f93ff00" height="200.0" layoutX="325.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+      <Label layoutX="328.0" layoutY="43.0" prefHeight="21.0" prefWidth="127.0" text="Date de Naissance:" />
+      <Label layoutX="332.0" layoutY="107.0" text="CIN :" />
+      <Label layoutX="332.0" layoutY="136.0" text="Adresse :" />
+      <Label layoutX="334.0" layoutY="197.0" text="Télephone : " />
+      <Label fx:id="dateN" alignment="TOP_LEFT" layoutX="398.0" layoutY="64.0" prefHeight="44.0" prefWidth="166.0" text="Label" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="cin" alignment="TOP_LEFT" layoutX="398.0" layoutY="105.0" prefHeight="21.0" prefWidth="115.0" text="Label" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="adr" alignment="TOP_LEFT" layoutX="398.0" layoutY="136.0" prefHeight="57.0" prefWidth="166.0" text="Label" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="tel" alignment="TOP_LEFT" layoutX="399.0" layoutY="195.0" prefHeight="21.0" prefWidth="136.0" text="Label" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
