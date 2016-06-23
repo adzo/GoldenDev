@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import utils.DateGoldenDev;
 
 /**
  * FXML Controller class
@@ -58,17 +59,7 @@ public class FXMLAjoutMedecinController implements Initializable {
         int idT;
         int cinT;
         Date dateT;
-        LocalDate localDate;
-        localDate = dateNaissance.getValue();
-        
-        Calendar cal = Calendar.getInstance();
-        
-        cal.set(Calendar.MONTH, localDate.getMonthValue()-1);
-        cal.set(Calendar.DATE, localDate.getDayOfMonth());
-        cal.set(Calendar.YEAR, localDate.getYear());
-        
-        dateT = cal.getTime();
-        
+        dateT = DateGoldenDev.localDateToString(dateNaissance.getValue());
         idT = AllUsers.modifiedUser.getId();
         nomT = nom.getText();
         prenomT = prenom.getText();
