@@ -13,7 +13,7 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="300.0">
          <children>
-            <TableView fx:id="tableau" prefHeight="400.0" prefWidth="300.0">
+            <TableView fx:id="tableau" prefHeight="400.0" prefWidth="300.0" onMouseClicked="#selection">
               <columns>
                 <TableColumn fx:id="idM" prefWidth="44.0" text="ID" />
                 <TableColumn fx:id="nomM" prefWidth="127.0" text="Nom" />

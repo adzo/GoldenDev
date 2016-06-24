@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import utils.DateGoldenDev;
 
 /**
  * FXML Controller class
@@ -26,6 +27,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author mohamedaziz
  */
 public class FXMLAfficherMedecinsController implements Initializable {
+         String[] months = {"Janvier","Fevrier","Mars","Avril","Mai","Juin",
+        "Juillet","Aout","Septembre","Octobre","Novembre","Decembre"};
+    String[] days = {"Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"};
+    
+    final String NEW_FORMAT = "dd/MM/yyyy";
 
     @FXML
     private Label dateN;
@@ -61,6 +67,37 @@ public class FXMLAfficherMedecinsController implements Initializable {
         Medecin.listes = mdao.afficherTout();
         data = FXCollections.observableArrayList(Medecin.listes);
         tableau.setItems(data);
-    }    
+    }
+      public void selection(){
+        u = tableau.getSelectionModel().getSelectedItem();
+        updateContent(u);
+          System.out.println("click");
+    }
+    
+    public void updateContent(Medecin m){
+        // Formatting the Date field
+        
+        //Testing for the other fields and setting them ;)
+        
+        //affichage de la date de naissance
+        if (u.getDateNaissance()!=null){
+        dateN.setText(DateGoldenDev.sqlToDateString(u.getDateNaissance()));
+        }else{
+            dateN.setText("Not defined");
+        }
+        //Affichage du CIN
+        if(u.getCin() !=0){
+        cin.setText(String.valueOf(u.getCin()));
+        }else{
+            cin.setText("Not defined");
+        }
+        //Affichage de l'adress
+        if(u.getAdresse()!=null){
+        adr.setText(u.getAdresse());
+        }else{
+            adr.setText("Not defined");
+        }
+       
+    }
     
 }
