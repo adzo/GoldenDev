@@ -28,12 +28,19 @@ public class CompteRenduDAO {
     
     public boolean ajout(CompteRendu cr){
         try {
-            String req = "INSERT INTO `compterendu`(`idMedecin`, `idJoueur`, `resultatTest`, `observation`) VALUES (?,?,?,?)";
+            String req = "INSERT INTO `compterendu`(`idMedecin`, `idJoueur`, `resultatTest`, `observation`,`Date`) VALUES (?,?,?,?,?)";
             pst = connection.prepareStatement(req);
             pst.setInt(1, cr.getIdMedecin());
             pst.setInt(2, cr.getIdJoureur());
-            pst.setBoolean(3, cr.isResultatTest());
+            
+            if(cr.isResultatTest()){
+                pst.setString(3,"positif" );
+            }else{
+                pst.setString(3,"negatif" );
+            }
+            
             pst.setString(4, cr.getObservation());
+            pst.setObject(5,cr.getDate());
             pst.executeUpdate();
             
             return true;

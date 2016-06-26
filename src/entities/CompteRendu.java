@@ -6,6 +6,8 @@
 
 package entities;
 
+import java.util.Date;
+
 /**
  *
  * @author ift
@@ -17,7 +19,7 @@ public class CompteRendu {
    private int idJoureur;
    private boolean resultatTest;
    private String observation;
-
+   private Date date;
     public CompteRendu() {
     }
 
@@ -29,7 +31,26 @@ public class CompteRendu {
         this.resultatTest = resultatTest;
         this.observation = observation;
     }
+     public CompteRendu( int idMedecin,  int idJoureur, boolean resultatTest, String observation, Date date) {
+        
+        this.idMedecin = idMedecin;
+        
+        this.idJoureur = idJoureur;
+        this.resultatTest = resultatTest;
+        this.observation = observation;
+        this.date = date;
+    }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    
+     
     public int getIdCompterendu() {
         return idCompterendu;
     }

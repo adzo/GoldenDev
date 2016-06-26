@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guiCompteRendu.FXMLAjoutCompteRenduController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiCompteRendu.FXMLAjoutCompteRenduController">
    <children>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#1f93ff00" height="380.0" layoutX="10.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="700.0" />
       <GridPane layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="700.0">
@@ -28,17 +27,18 @@
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#1f93ff00" height="96.0" stroke="BLACK" strokeType="INSIDE" width="549.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <RadioButton fx:id="positif" mnemonicParsing="false" text="Positif">
+                  <RadioButton fx:id="positif" onAction="#testPositif"  mnemonicParsing="false" text="Positif">
                      <toggleGroup>
                         <ToggleGroup fx:id="result" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="negatif" mnemonicParsing="false" text="Négatif" toggleGroup="$result" />
+                  <RadioButton fx:id="negatif" onAction="#testNegatif" selected="true" mnemonicParsing="false" text="Négatif" toggleGroup="$result" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="80.0" GridPane.columnIndex="1">
                <children>
                   <TextField fx:id="idJoueur" onKeyPressed="#openRechercheJoueur" onMouseClicked="#openRechercheJoueur" promptText="Id Joueur" />
+                  <DatePicker fx:id="date"  promptText="Date de Test" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -56,7 +56,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="valider" mnemonicParsing="false" prefHeight="33.0" prefWidth="109.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="Valider" GridPane.columnIndex="1" />
+                  <Button fx:id="valider" mnemonicParsing="false" onAction="#valider" prefHeight="33.0" prefWidth="109.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="Valider" GridPane.columnIndex="1" />
+                  <Label fx:id="msg" textFill="RED" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
             <Label contentDisplay="TOP" text="Identifiant Joueur :" GridPane.valignment="CENTER">
