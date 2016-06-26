@@ -109,7 +109,7 @@
                     <panes>
                       <TitledPane animated="false" text="untitled 1">
                            <content>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="Créer Compte Rendu" />
+                              <Button mnemonicParsing="false" onAction="#ajouterCompteRendu"  prefHeight="25.0" prefWidth="213.0" text="Créer Compte Rendu" />
                            </content>
                         </TitledPane>
                       <TitledPane animated="false" text="untitled 2" />

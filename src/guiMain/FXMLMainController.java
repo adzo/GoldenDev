@@ -198,6 +198,17 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
     }
+    
+    
+        // <editor-fold> partie Medecin
+        public void ajouterCompteRendu() throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/guiCompteRendu/FXMLAjoutCompteRendu.fxml"));
+            centerPane.getChildren().clear();
+            centerPane.getChildren().add(root);
+        }
+        
+        // </editor-fold>
+    
     // </editor-fold>
     @FXML
     public void login(MouseEvent event) throws IOException {
