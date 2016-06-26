@@ -6,6 +6,8 @@
 
 package entities;
 
+import java.util.Date;
+
 /**
  *
  * @author ift
@@ -14,22 +16,37 @@ public class Joueur {
    private int idJoueur;
    private String nom;
    private String prenom;
-   private String dateNaissance;
+   private Date dateNaissance;
    private int cin;
    private String adresseJoueur;
    private String sexeJoueur;
    private String niveauJoueur;
-   private String poidJoeur;
+   private int poidJoeur;
    private int telephoneJoueur;
    private int photoJoueur;
    private int idClub;
+   private int etat;
 
     public Joueur() {
+    }
+
+    public Joueur(int idJoueur, String nom, String prenom, Date dateNaissance, int cin, String adresseJoueur, String sexeJoueur, String niveauJoueur,int poid, int telephoneJoueur ,int etat) {
+        this.idJoueur = idJoueur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.cin = cin;
+        this.adresseJoueur = adresseJoueur;
+        this.sexeJoueur = sexeJoueur;
+        this.niveauJoueur = niveauJoueur;
+        this.telephoneJoueur = telephoneJoueur;
+        this.etat = etat;
+        this.poidJoeur = poid;
     }
     
     
     
-    public Joueur(int idJoueur, String nom, String prenom, String dateNaissance, int cin, String adresseJoueur, String sexeJoueur, String niveauJoueur, String poidJoeur, int telephoneJoueur, int photoJoueur, int idClub) {
+    public Joueur(int idJoueur, String nom, String prenom, Date dateNaissance, int cin, String adresseJoueur, String sexeJoueur, String niveauJoueur, int poidJoeur, int telephoneJoueur, int photoJoueur, int idClub) {
         this.idJoueur = idJoueur;
         this.nom = nom;
         this.prenom = prenom;
@@ -56,7 +73,7 @@ public class Joueur {
         return prenom;
     }
 
-    public String getDateNaissance() {
+    public Date getDateNaissance() {
         return dateNaissance;
     }
 
@@ -76,7 +93,7 @@ public class Joueur {
         return niveauJoueur;
     }
 
-    public String getPoidJoeur() {
+    public int getPoidJoeur() {
         return poidJoeur;
     }
 
@@ -104,7 +121,7 @@ public class Joueur {
         this.prenom = prenom;
     }
 
-    public void setDateNaissance(String dateNaissance) {
+    public void setDateNaissance(Date dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
@@ -124,7 +141,7 @@ public class Joueur {
         this.niveauJoueur = niveauJoueur;
     }
 
-    public void setPoidJoeur(String poidJoeur) {
+    public void setPoidJoeur(int poidJoeur) {
         this.poidJoeur = poidJoeur;
     }
 
@@ -140,6 +157,16 @@ public class Joueur {
         this.idClub = idClub;
     }
 
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Joueur{" + "idJoueur=" + idJoueur + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", cin=" + cin + ", adresseJoueur=" + adresseJoueur + ", sexeJoueur=" + sexeJoueur + ", niveauJoueur=" + niveauJoueur + ", poidJoeur=" + poidJoeur + ", telephoneJoueur=" + telephoneJoueur + ", photoJoueur=" + photoJoueur + ", idClub=" + idClub + '}';

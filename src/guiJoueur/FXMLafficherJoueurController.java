@@ -9,6 +9,7 @@ import dao.AllUsersDAO;
 import dao.JoueurDAO;
 import entities.Joueur;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -67,11 +68,12 @@ public class FXMLafficherJoueurController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        ArrayList<Joueur> liste = new ArrayList<>();
         id.setCellValueFactory(new PropertyValueFactory<>("idJoueur"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        Joueur.listes = j.afficherTout();
-        data = FXCollections.observableArrayList(Joueur.listes);
+        liste = j.afficherTout();
+        data = FXCollections.observableArrayList(liste);
         tableau.setItems(data);
     }    
     

@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.DataSource;
@@ -89,6 +90,24 @@ public class JoueurDAO implements InterfaceJoueurDAO {
         if (prenom == null) prenom = "not defined";
         res = nom + ", "+prenom;
         return res;
+    }
+    
+     public ArrayList<Joueur> afficherTout() {
+        ArrayList<Joueur> liste = new ArrayList<>();
+        Joueur j;
+        try {
+
+            String req = "SELECT * FROM `joueur` ";
+            pst = connection.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                j = new Joueur(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getString(6), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12));
+                liste.add(j);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MedecinDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
     }
     
 }

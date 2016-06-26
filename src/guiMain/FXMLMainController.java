@@ -36,6 +36,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 /**
@@ -62,6 +63,8 @@ public class FXMLMainController implements Initializable {
     private Pane centerPane;
     @FXML
     private Accordion adminPanel;
+    @FXML
+    private Accordion docPanel;
     @FXML
     private Accordion userPanel;
     @FXML
@@ -112,6 +115,45 @@ public class FXMLMainController implements Initializable {
         /**
          * Initialisation of access
          */
+        switch (AllUsers.connected.getType()){
+                            case "arbitre":
+                                
+                                adminPanel.setVisible(false);
+                                userPanel.setVisible(false);
+                                docPanel.setVisible(false);
+                                break;
+                            case "Joueur":
+                                
+                                adminPanel.setVisible(false);
+                                userPanel.setVisible(false);
+                                docPanel.setVisible(false);
+                                break;
+                            case "ResponsableAD":
+                                
+                                adminPanel.setVisible(false);
+                                userPanel.setVisible(false);
+                                docPanel.setVisible(false);
+                                break;
+                            case "User" :
+                                
+                                adminPanel.setVisible(false);
+                                userPanel.setVisible(true);
+                                docPanel.setVisible(false);
+                                break;
+                            case "Medecin" :
+                                adminPanel.setVisible(false);
+                                userPanel.setVisible(false);
+                                docPanel.setVisible(true);
+                                
+                                break;
+                            case "admin":
+                                adminPanel.setVisible(true);
+                                userPanel.setVisible(false);
+                                docPanel.setVisible(false);
+                                break;
+                            default: break;
+                        }
+        
         if (!AllUsers.connected.getType().equals("admin")) {
             adminPanel.setVisible(false);
             userPanel.setVisible(true);
@@ -125,7 +167,8 @@ public class FXMLMainController implements Initializable {
     public void closePlatform() {
         Platform.exit();
     }
-
+    //chargement des fenetre
+    // <editor-fold  defaultstate="collapsed">
     @FXML
     public void loadAllUsers() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/guiAllUsers/FXMLGuiAllUsers.fxml"));
@@ -150,7 +193,12 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
     }
 
-
+    public void loadJoueur() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/guiJoueur/FXMLafficherJoueur.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+    }
+    // </editor-fold>
     @FXML
     public void login(MouseEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();

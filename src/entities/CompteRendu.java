@@ -13,7 +13,7 @@ package entities;
 public class CompteRendu {
    private int idCompterendu;
    private int idMedecin;
-   private int idResponsable;
+   
    private int idJoureur;
    private boolean resultatTest;
    private String observation;
@@ -21,10 +21,10 @@ public class CompteRendu {
     public CompteRendu() {
     }
 
-    public CompteRendu(int idCompterendu, int idMedecin, int idResponsable, int idJoureur, boolean resultatTest, String observation) {
+    public CompteRendu(int idCompterendu, int idMedecin,  int idJoureur, boolean resultatTest, String observation) {
         this.idCompterendu = idCompterendu;
         this.idMedecin = idMedecin;
-        this.idResponsable = idResponsable;
+        
         this.idJoureur = idJoureur;
         this.resultatTest = resultatTest;
         this.observation = observation;
@@ -38,9 +38,7 @@ public class CompteRendu {
         return idMedecin;
     }
 
-    public int getIdResponsable() {
-        return idResponsable;
-    }
+   
 
     public int getIdJoureur() {
         return idJoureur;
@@ -62,9 +60,7 @@ public class CompteRendu {
         this.idMedecin = idMedecin;
     }
 
-    public void setIdResponsable(int idResponsable) {
-        this.idResponsable = idResponsable;
-    }
+    
 
     public void setIdJoureur(int idJoureur) {
         this.idJoureur = idJoureur;

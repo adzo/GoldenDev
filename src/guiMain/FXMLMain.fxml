@@ -69,7 +69,7 @@
                                           <Button mnemonicParsing="false" onAction="#loadAllUsers" prefHeight="26.0" prefWidth="220.0" stylesheets="@../resources/CSS/MenuItems.css" text="All Users" />
                                           <Button mnemonicParsing="false" onAction="#loadUsers" prefHeight="25.0" prefWidth="220.0" text="Users" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
+                                          <Button mnemonicParsing="false" onAction="#loadJoueur"  prefHeight="25.0" prefWidth="220.0" text="Joueur" />
                                           <Button mnemonicParsing="false" onAction="#loadMedecins" prefHeight="25.0" prefWidth="220.0" text="Medecins" />
                                           <Button mnemonicParsing="false" onAction="#loadResponsable" prefHeight="25.0" prefWidth="220.0" text="Responsable antidopage" />
                                        </children>
