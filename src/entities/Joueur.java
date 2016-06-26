@@ -27,6 +27,7 @@ public class Joueur {
    private int idClub;
    private int etat;
 
+   public static Joueur modifiedJoueur;
     public Joueur() {
     }
 

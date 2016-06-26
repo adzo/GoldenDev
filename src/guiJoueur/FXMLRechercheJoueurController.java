@@ -5,46 +5,31 @@
  */
 package guiJoueur;
 
-import dao.AllUsersDAO;
 import dao.JoueurDAO;
 import entities.Joueur;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
  *
- * @author Sami
+ * @author mohamedaziz
  */
-public class FXMLafficherJoueurController implements Initializable {
+public class FXMLRechercheJoueurController implements Initializable {
 
-   @FXML
-   private Label datenaiss;
-   @FXML
-   private Label adresse;
-   @FXML 
-   private Label cin;
-   @FXML
-   private Label sexe;
-   @FXML
-   private Label niveau;
-   @FXML 
-   private Label poids;
-   @FXML
-   private Label telephone;
-   @FXML
-   private Label club;
-   @FXML
+     @FXML
    private TableView<Joueur> tableau;
    @FXML
    private TableColumn<Joueur,Integer> id;
@@ -52,22 +37,35 @@ public class FXMLafficherJoueurController implements Initializable {
    private TableColumn<Joueur,String> nom;
    @FXML
    private TableColumn<Joueur,String> prenom;
-   
-    //AllUsersDAO p = new AllUsersDAO();
+    
     JoueurDAO j=new JoueurDAO();
     ObservableList<Joueur> data;
     Joueur u = new Joueur();
-    
-    public void selectedElement(){
-        u  = tableau.getSelectionModel().getSelectedItem();
-        System.out.println(u.toString());
+     
+    public void selectedElement(MouseEvent event){
+        if (event.getClickCount() != 2){
+        Joueur.modifiedJoueur  = tableau.getSelectionModel().getSelectedItem();
+        System.out.println(Joueur.modifiedJoueur.toString());
+        }else{
+            Joueur.modifiedJoueur  = tableau.getSelectionModel().getSelectedItem();
+            Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+            stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
+        }
+     
     }
+    
+//    public void selectedElement(MouseEvent event){
+
+//        
+//   
+//    }
     
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Joueur.modifiedJoueur=null;
         ArrayList<Joueur> liste = new ArrayList<>();
         id.setCellValueFactory(new PropertyValueFactory<>("idJoueur"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));

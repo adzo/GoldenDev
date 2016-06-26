@@ -79,7 +79,7 @@ public class FXMLAfficherAllUsersController implements Initializable {
         try {
             Stage modif = new Stage();
             
-                    modif.setOnCloseRequest(new EventHandler<WindowEvent>() {
+             modif.setOnCloseRequest(new EventHandler<WindowEvent>() {
              public void handle(WindowEvent we) {
                 
                      refreshTable();
