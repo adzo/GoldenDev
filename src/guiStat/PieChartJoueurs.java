@@ -108,7 +108,7 @@ public class PieChartJoueurs extends Application {
  
 
         stage.setScene(scene);
-stage.setTitle("Statistique");
+        stage.setTitle("Statistique");
         stage.show();
 
       }

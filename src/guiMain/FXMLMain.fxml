@@ -69,7 +69,7 @@
                                           <Button mnemonicParsing="false" onAction="#loadAllUsers" prefHeight="26.0" prefWidth="220.0" stylesheets="@../resources/CSS/MenuItems.css" text="All Users" />
                                           <Button mnemonicParsing="false" onAction="#loadUsers" prefHeight="25.0" prefWidth="220.0" text="Users" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
-                                          <Button mnemonicParsing="false" onAction="#loadJoueur"  prefHeight="25.0" prefWidth="220.0" text="Joueur" />
+                                          <Button mnemonicParsing="false" onAction="#loadJoueur" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
                                           <Button mnemonicParsing="false" onAction="#loadMedecins" prefHeight="25.0" prefWidth="220.0" text="Medecins" />
                                           <Button mnemonicParsing="false" onAction="#loadResponsable" prefHeight="25.0" prefWidth="220.0" text="Responsable antidopage" />
                                        </children>
@@ -103,6 +103,16 @@
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
                       </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <Accordion fx:id="docPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                    <panes>
+                      <TitledPane animated="false" text="untitled 1">
+                           <content>
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="Créer Compte Rendu" />
+                           </content>
+                        </TitledPane>
+                      <TitledPane animated="false" text="untitled 2" />
                     </panes>
                   </Accordion>
                </children>
