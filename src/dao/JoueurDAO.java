@@ -22,7 +22,7 @@ import utils.DataSource;
  * @author AD ZO
  */
 public class JoueurDAO implements InterfaceJoueurDAO {
-    
+
     PreparedStatement pst; //l'entité qui gère la requête
     Connection connection;
 
@@ -38,7 +38,7 @@ public class JoueurDAO implements InterfaceJoueurDAO {
             pst = connection.prepareStatement(req);
             pst.setInt(1, j.getIdJoueur());
             pst.executeUpdate();
-            
+
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(JoueurDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,11 +48,11 @@ public class JoueurDAO implements InterfaceJoueurDAO {
 
     @Override
     public boolean delete() {
-        
+
         try {
             String req = "DELETE FROM `joueur` WHERE `idJoueur` = ?";
             pst = connection.prepareStatement(req);
-            pst.setInt(1,AllUsers.modifiedUser.getId());
+            pst.setInt(1, AllUsers.modifiedUser.getId());
             pst.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -63,36 +63,78 @@ public class JoueurDAO implements InterfaceJoueurDAO {
 
     @Override
     public boolean update(Joueur j) {
-    return true;
+        return true;
     }
-    
-    public String nomPrenomJoueur(int i){
-        String nom =null;
-        String prenom=null;
+
+    public String nomPrenomJoueur(int i) {
+        String nom = null;
+        String prenom = null;
         String res;
-        
-        String req ="SELECT  `nom`, `prenom` FROM `joueur` WHERE `idJoueur` = ?";
+
+        String req = "SELECT  `nom`, `prenom` FROM `joueur` WHERE `idJoueur` = ?";
         try {
-            pst=connection.prepareStatement(req);
-        
-        pst.setInt(1,i);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
+            pst = connection.prepareStatement(req);
+
+            pst.setInt(1, i);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
                 nom = rs.getString(1);
                 prenom = rs.getString(2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ArbitreDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (nom == null) nom ="not defined";
-        
-        if (prenom == null) prenom = "not defined";
-        res = nom + ", "+prenom;
+
+        if (nom == null) {
+            nom = "not defined";
+        }
+
+        if (prenom == null) {
+            prenom = "not defined";
+        }
+        res = nom + ", " + prenom;
         return res;
     }
-    
-     public ArrayList<Joueur> afficherTout() {
+
+    public ArrayList<Joueur> search(String keyWord) {
+        ArrayList<Joueur> liste = new ArrayList<>();
+        Joueur j;
+
+//        int id = 0;
+//        int test = Integer.parseInt(keyWord);
+//        `idJoueur` = ?
+        try {
+            String req;
+            try {
+                int id = Integer.parseInt(keyWord);
+                req = "SELECT * FROM `joueur` WHERE `idJoueur` = "+id; 
+            } catch (NumberFormatException e) {
+                System.out.println("Error : " + e.getMessage());
+                if (keyWord.equals("")) {
+                req = "SELECT * FROM `joueur` WHERE 1";
+            } else {
+                req = "SELECT * FROM `joueur` WHERE `nom` LIKE '%" + keyWord + "%' OR `prenom` LIKE '%" + keyWord + "%'";
+            }
+            }
+            
+            System.out.println(req);
+            pst = connection.prepareStatement(req);
+//            pst.setString(1, keyWord);
+//            pst.setString(2, keyWord);
+            // pst.setString(3, keyWord);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                j = new Joueur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getString(6), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12));
+                liste.add(j);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MedecinDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return liste;
+    }
+
+    public ArrayList<Joueur> afficherTout() {
         ArrayList<Joueur> liste = new ArrayList<>();
         Joueur j;
         try {
@@ -101,7 +143,7 @@ public class JoueurDAO implements InterfaceJoueurDAO {
             pst = connection.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                j = new Joueur(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getString(6), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12));
+                j = new Joueur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getString(6), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12));
                 liste.add(j);
             }
         } catch (SQLException ex) {
@@ -109,5 +151,5 @@ public class JoueurDAO implements InterfaceJoueurDAO {
         }
         return liste;
     }
-    
+
 }

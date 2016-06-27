@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -29,7 +30,9 @@ import javafx.stage.WindowEvent;
  */
 public class FXMLRechercheJoueurController implements Initializable {
 
-     @FXML
+   @FXML
+   private TextField recherche;
+   @FXML
    private TableView<Joueur> tableau;
    @FXML
    private TableColumn<Joueur,Integer> id;
@@ -60,6 +63,14 @@ public class FXMLRechercheJoueurController implements Initializable {
 //   
 //    }
     
+    public void search (){
+        String keyWord = recherche.getText();
+        ArrayList<Joueur> liste = new ArrayList<>();
+        liste = j.search(keyWord);
+        data = FXCollections.observableArrayList(liste);
+        tableau.setItems(data);
+//            System.err.println(recherche.getText());
+    }
     
     
     @Override
