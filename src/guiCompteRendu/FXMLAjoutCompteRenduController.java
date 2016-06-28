@@ -29,6 +29,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -62,8 +63,6 @@ public class FXMLAjoutCompteRenduController implements Initializable {
     @FXML
     private Label adresse;
     @FXML
-    private Label cin;
-    @FXML
     private Label sexe;
     @FXML
     private Label niveau;
@@ -75,6 +74,8 @@ public class FXMLAjoutCompteRenduController implements Initializable {
             private DatePicker date;
     boolean state = false;
     Joueur j = new Joueur();
+    @FXML
+    private ToggleGroup result;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -179,6 +180,7 @@ public class FXMLAjoutCompteRenduController implements Initializable {
 
     }
 
+    @FXML
     public void testPositif() {
         state = true;
     }
@@ -192,6 +194,7 @@ public class FXMLAjoutCompteRenduController implements Initializable {
         date.getEditor().clear();
     }
 
+    @FXML
     public void testNegatif() {
         state = false;
     }
