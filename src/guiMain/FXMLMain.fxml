@@ -106,7 +106,7 @@
                       <TitledPane animated="false" text="untitled 2" />
                     </panes>
                   </Accordion>
-                  <Accordion fx:id="adminPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                  <Accordion fx:id="adminPanel" layoutX="13.0" layoutY="62.0" prefHeight="320.0" prefWidth="223.0">
                     <panes>
                       <TitledPane animated="false" text="Gestion Users">
                         <content>
@@ -120,6 +120,7 @@
                                           <Button mnemonicParsing="false" onAction="#loadJoueur" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
                                           <Button mnemonicParsing="false" onAction="#loadMedecins" prefHeight="25.0" prefWidth="220.0" text="Medecins" />
                                           <Button mnemonicParsing="false" onAction="#loadResponsable" prefHeight="25.0" prefWidth="220.0" text="Responsable antidopage" />
+                                          <Button layoutX="10.0" layoutY="166.0" mnemonicParsing="false" onAction="#loadClubs" prefHeight="25.0" prefWidth="220.0" text="Clubs" />
                                        </children>
                                        <padding>
                                           <Insets top="5.0" />

@@ -195,6 +195,16 @@ public class FXMLMainController implements Initializable {
         activeWindow.setText("Gestion des Fans");
     }
     
+    @FXML
+    public void loadClubs() throws IOException{
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiClub/FXMLClubsMain.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion des Clubs");
+        
+    }
+    
     public void loadMedecins() throws IOException{
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiMedecin/FXMLAfficherMedecins.fxml"));
