@@ -63,7 +63,8 @@
             </Label>
          </children>
       </GridPane>
-      <Pane layoutX="300.0" layoutY="40.0" prefHeight="360.0" prefWidth="300.0" />
-      <Label fx:id="title" layoutX="377.0" layoutY="6.0" text="Liste Des joueurs adhérants" />
+      <Pane fx:id="listeJoueurs" layoutX="320.0" layoutY="40.0" prefHeight="340.0" prefWidth="280.0" />
+      <Label fx:id="title" layoutX="377.0" layoutY="14.0" text="Liste Des joueurs adhérants" />
+      <Line fx:id="ligne" endY="180.0" layoutX="310.0" layoutY="200.0" startX="-0.0" startY="-160.0" />
    </children>
 </AnchorPane>

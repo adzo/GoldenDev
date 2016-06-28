@@ -21,6 +21,7 @@ public class Club {
    private String presidentClub;
    private String photoClub;
 
+   public static int id;
     public Club() {
     }
 

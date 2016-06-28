@@ -17,7 +17,7 @@ public  class DateGoldenDev {
     
     //Formatting de la date reçu de la requête SQL et la mettre sous la forme de
     // "jour de semaine" le "date et mois en lettre"
-    public static String sqlToDateString(Date userDate){
+    public static String dateToStringLong(Date userDate){
         
         String[] months = {"Janvier","Fevrier","Mars","Avril","Mai","Juin",
         "Juillet","Aout","Septembre","Octobre","Novembre","Decembre"};
@@ -41,7 +41,7 @@ public  class DateGoldenDev {
         return dayOfTheWeek+" le "+jour+" "+month+" "+year;
     }
     
-    public static String sqlToDateString2(Date userDate){
+    public static String dateToString(Date userDate){
         
         String[] months = {"Janvier","Fevrier","Mars","Avril","Mai","Juin",
         "Juillet","Aout","Septembre","Octobre","Novembre","Decembre"};

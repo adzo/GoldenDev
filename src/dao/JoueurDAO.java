@@ -152,6 +152,26 @@ public class JoueurDAO implements InterfaceJoueurDAO {
         return liste;
     }
 
+    public ArrayList<Joueur> afficherTout(int idClub) {
+        ArrayList<Joueur> liste = new ArrayList<>();
+        Joueur j;
+        try {
+
+            String req = "SELECT * FROM `joueur` WHERE `idClub` = ?";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1, idClub);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                j = new Joueur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getString(6),
+                        rs.getInt(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12));
+                liste.add(j);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MedecinDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }
+
     public Joueur getJoueur(int idJoueur) {
         Joueur j = new Joueur();
         try {
@@ -160,7 +180,7 @@ public class JoueurDAO implements InterfaceJoueurDAO {
             pst.setInt(1, idJoueur);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                 j = new Joueur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(11));
+                j = new Joueur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(11));
             }
         } catch (SQLException ex) {
             Logger.getLogger(JoueurDAO.class.getName()).log(Level.SEVERE, null, ex);

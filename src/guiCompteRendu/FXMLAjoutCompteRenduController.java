@@ -95,7 +95,7 @@ public class FXMLAjoutCompteRenduController implements Initializable {
                     idJoueur.setText(search);
                     //set des info a partir de Joueur.modified
                     if (Joueur.modifiedJoueur.getDateNaissance() != null) {
-                        datenaiss.setText(DateGoldenDev.sqlToDateString(Joueur.modifiedJoueur.getDateNaissance()));
+                        datenaiss.setText(DateGoldenDev.dateToStringLong(Joueur.modifiedJoueur.getDateNaissance()));
                     } else {
                         datenaiss.setText("Not defined");
                     }

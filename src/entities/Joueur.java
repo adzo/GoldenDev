@@ -52,7 +52,35 @@ public class Joueur {
         this.poidJoeur = poid;
     }
     
-    
+    /**
+     *
+     * @param idJoueur
+     * @param nom
+     * @param prenom
+     * @param dateNaissance
+     * @param cin
+     * @param adresseJoueur
+     * @param sexeJoueur
+     * @param niveauJoueur
+     * @param poidJoeur
+     * @param telephoneJoueur
+     * @param idClub
+     */
+    public Joueur(int idJoueur, String nom, String prenom, Date dateNaissance, int cin, String adresseJoueur, int idClub,
+            String sexeJoueur, String niveauJoueur, int poidJoeur, int telephoneJoueur, int etat ) {
+        this.idJoueur = idJoueur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.cin = cin;
+        this.adresseJoueur = adresseJoueur;
+        this.sexeJoueur = sexeJoueur;
+        this.niveauJoueur = niveauJoueur;
+        this.poidJoeur = poidJoeur;
+        this.telephoneJoueur = telephoneJoueur;
+        
+        this.idClub = idClub;
+    }
     
     public Joueur(int idJoueur, String nom, String prenom, Date dateNaissance, int cin, String adresseJoueur, String sexeJoueur, String niveauJoueur, int poidJoeur, int telephoneJoueur, int photoJoueur, int idClub) {
         this.idJoueur = idJoueur;

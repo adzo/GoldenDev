@@ -81,7 +81,7 @@ public class FXMLAfficherResponsablesController implements Initializable {
         
         //affichage de la date de naissance
         if (u.getDateNaissance()!=null){
-        dateN.setText(DateGoldenDev.sqlToDateString(u.getDateNaissance()));
+        dateN.setText(DateGoldenDev.dateToStringLong(u.getDateNaissance()));
         }else{
             dateN.setText("Not defined");
         }

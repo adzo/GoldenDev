@@ -64,7 +64,7 @@ public class FXMLafficherJoueurController implements Initializable {
         System.out.println(u.toString());
         //Setting the fields
         if(u.getDateNaissance() != null){
-            datenaiss.setText(DateGoldenDev.sqlToDateString(u.getDateNaissance()));
+            datenaiss.setText(DateGoldenDev.dateToStringLong(u.getDateNaissance()));
         }else{
             datenaiss.setText("Not Defined");
         }
