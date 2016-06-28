@@ -58,15 +58,63 @@
                       </TitledPane>
                     </panes>
                   </Accordion>
-                  <Accordion fx:id="adminPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                  <Accordion fx:id="responsablePanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
                     <panes>
                       <TitledPane animated="false" text="Gestion">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
+                                    <VBox alignment="CENTER" layoutY="-0.0" spacing="20.0">
+                                       <children>
+                                          <Button alignment="CENTER" mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Liste Compte Rendu" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="untitled 2">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="untitled 3">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <Accordion fx:id="docPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                    <panes>
+                      <TitledPane animated="false" text="untitled 1">
+                           <content>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#ajouterCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Créer Compte Rendu" />
+                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Afficher Mes Comptes Rendus" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                      <TitledPane animated="false" text="untitled 2" />
+                    </panes>
+                  </Accordion>
+                  <Accordion fx:id="adminPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                    <panes>
+                      <TitledPane animated="false" text="Gestion Users">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
                                     <VBox prefHeight="231.0" prefWidth="222.0" spacing="5.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#loadAllUsers" prefHeight="26.0" prefWidth="220.0" stylesheets="@../resources/CSS/MenuItems.css" text="All Users" />
+                                          <Button mnemonicParsing="false" onAction="#loadAllUsers" prefHeight="26.0" prefWidth="220.0" text="All Users" />
                                           <Button mnemonicParsing="false" onAction="#loadUsers" prefHeight="25.0" prefWidth="220.0" text="Users" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
                                           <Button mnemonicParsing="false" onAction="#loadJoueur" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
@@ -81,14 +129,15 @@
                               </AnchorPane>
                         </content>
                       </TitledPane>
-                      <TitledPane animated="false" text="Utilisateur et reservations">
+                      <TitledPane animated="false" text="Anti Dopage &amp; Formation">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <VBox prefHeight="231.0" prefWidth="222.0" spacing="5.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Users" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Reservation" />
+                                          <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="221.0" text="Liste Compte Rendu" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Liste Joueurs Disqualifiés" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Formation Arbitres" />
                                        </children>
                                        <padding>
                                           <Insets top="5.0" />
@@ -98,21 +147,43 @@
                               </AnchorPane>
                         </content>
                       </TitledPane>
-                      <TitledPane animated="false" prefHeight="197.0" prefWidth="223.0" text="untitled 3">
+                      <TitledPane animated="false" prefHeight="197.0" prefWidth="223.0" text="Gestions Compétitions">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="218.0" prefWidth="221.0" spacing="5.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefWidth="221.0" text="Matchs">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button layoutX="10.0" layoutY="15.0" mnemonicParsing="false" prefWidth="221.0" text="Reservations Des Matchs" />
+                                          <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" prefWidth="221.0" text="Formations Arbitre" />
+                                          <Button mnemonicParsing="false" prefWidth="221.0" text="Concours Arbitre" />
+                                          <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" prefWidth="221.0" text="Stades" />
+                                          <Button layoutX="10.0" layoutY="135.0" mnemonicParsing="false" prefWidth="221.0" text="Compétitions" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children></AnchorPane>
                         </content>
                       </TitledPane>
-                    </panes>
-                  </Accordion>
-                  <Accordion fx:id="docPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
-                    <panes>
-                      <TitledPane animated="false" text="untitled 1">
+                        <TitledPane prefHeight="200.0" prefWidth="200.0" text="Pari">
                            <content>
-                              <Button mnemonicParsing="false" onAction="#ajouterCompteRendu"  prefHeight="25.0" prefWidth="213.0" text="Créer Compte Rendu" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefWidth="221.0" text="Créer Un Pari" />
+                                    <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="221.0" text="Afficher les Pari" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </VBox>
                            </content>
                         </TitledPane>
-                      <TitledPane animated="false" text="untitled 2" />
                     </panes>
                   </Accordion>
                </children>
@@ -137,7 +208,7 @@
                   </Label>
                   <ImageView fx:id="logo" fitHeight="25.0" fitWidth="25.0" layoutX="690.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="changeLogin" fitHeight="25.0" fitWidth="25.0" layoutX="12.0" layoutY="12.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true" />
-                  <MenuBar layoutX="50.0" layoutY="12.0" prefHeight="25.0" prefWidth="600.0">
+                  <MenuBar layoutX="50.0" layoutY="12.0" prefHeight="25.0" prefWidth="339.0">
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
@@ -157,6 +228,13 @@
                       </Menu>
                     </menus>
                   </MenuBar>
+                  <Label fx:id="activeWindow" layoutX="440.0" layoutY="15.0" prefHeight="21.0" prefWidth="202.0" textFill="#908f40">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="646.0" layoutY="14.0" text="|" />
+                  <Label layoutX="430.0" layoutY="15.0" text="|" />
                </children>
                
             </Pane>

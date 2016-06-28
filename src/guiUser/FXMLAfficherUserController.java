@@ -62,17 +62,19 @@ public class FXMLAfficherUserController implements Initializable {
         Calendar cal = Calendar.getInstance();
         if(u.getDateNaissance() != null){
         cal.setTime(u.getDateNaissance());
-        }
-//        final DateFormat dateFormat;
-//        dateFormat = DateFormat.getDateTimeInstance(); 
-//        
         String jour, month, year, dayOfTheWeek;
         jour= String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
         month= months[cal.get(Calendar.MONTH)];
         year= String.valueOf(cal.get(Calendar.YEAR));
         dayOfTheWeek = days[cal.get(Calendar.DAY_OF_WEEK)-1];
-        
-        
+        birth.setText(dayOfTheWeek+" le "+jour+" "+month+" "+year);
+        }else{
+            birth.setText("Not defined");
+        }
+//        final DateFormat dateFormat;
+//        dateFormat = DateFormat.getDateTimeInstance(); 
+//        
+       
         
         
         //Setting the fields : 
@@ -82,11 +84,7 @@ public class FXMLAfficherUserController implements Initializable {
             cin.setText("Not defined");
         }
         //birth.setText(dateFormat.format(cal.getTime()) );
-        if (u.getDateNaissance()!=null){
-        birth.setText(dayOfTheWeek+" le "+jour+" "+month+" "+year);
-        }else{
-            birth.setText("Not defined");
-        }
+        
         if(u.getAdresse()!=null){
         adresse.setText(u.getAdresse());
         }else{

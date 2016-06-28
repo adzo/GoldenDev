@@ -107,16 +107,16 @@ public class JoueurDAO implements InterfaceJoueurDAO {
             String req;
             try {
                 int id = Integer.parseInt(keyWord);
-                req = "SELECT * FROM `joueur` WHERE `idJoueur` = "+id; 
+                req = "SELECT * FROM `joueur` WHERE `idJoueur` = " + id;
             } catch (NumberFormatException e) {
                 System.out.println("Error : " + e.getMessage());
                 if (keyWord.equals("")) {
-                req = "SELECT * FROM `joueur` WHERE 1";
-            } else {
-                req = "SELECT * FROM `joueur` WHERE `nom` LIKE '%" + keyWord + "%' OR `prenom` LIKE '%" + keyWord + "%'";
+                    req = "SELECT * FROM `joueur` WHERE 1";
+                } else {
+                    req = "SELECT * FROM `joueur` WHERE `nom` LIKE '%" + keyWord + "%' OR `prenom` LIKE '%" + keyWord + "%'";
+                }
             }
-            }
-            
+
             System.out.println(req);
             pst = connection.prepareStatement(req);
 //            pst.setString(1, keyWord);
@@ -150,6 +150,22 @@ public class JoueurDAO implements InterfaceJoueurDAO {
             Logger.getLogger(MedecinDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return liste;
+    }
+
+    public Joueur getJoueur(int idJoueur) {
+        Joueur j = new Joueur();
+        try {
+            String req = "SELECT * FROM `joueur` WHERE `idJoueur` = ?";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1, idJoueur);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                 j = new Joueur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(11));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JoueurDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return j;
     }
 
 }

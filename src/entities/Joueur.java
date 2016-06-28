@@ -31,6 +31,13 @@ public class Joueur {
     public Joueur() {
     }
 
+    public Joueur(int idJoueur, String nom, String prenom, int telephoneJoueur) {
+        this.idJoueur = idJoueur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephoneJoueur = telephoneJoueur;
+    }
+
     public Joueur(int idJoueur, String nom, String prenom, Date dateNaissance, int cin, String adresseJoueur, String sexeJoueur, String niveauJoueur,int poid, int telephoneJoueur ,int etat) {
         this.idJoueur = idJoueur;
         this.nom = nom;

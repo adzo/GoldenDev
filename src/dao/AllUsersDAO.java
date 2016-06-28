@@ -177,13 +177,9 @@ else
     public ArrayList<AllUsers> afficherTout() {
         ArrayList<AllUsers> listeUsers = new ArrayList<AllUsers>();
         try {
-            int i = 0;
-
             AllUsers u;
-
             String req = "SELECT * FROM `alluser`";
             pst = connection.prepareStatement(req);
-
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {

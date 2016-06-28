@@ -151,7 +151,7 @@ public class FXMLAjoutCompteRenduController implements Initializable {
 
     @FXML
     public void valider() {
-        if (!idJoueur.getText().equals("")) {
+        if (!idJoueur.getText().equals("") && date.getValue() != null ) {
             String obs;
             int idM = AllUsers.connected.getId();
             int idJ = Joueur.modifiedJoueur.getIdJoueur();

@@ -15,36 +15,71 @@ import java.util.Date;
 public class CompteRendu {
    private int idCompterendu;
    private int idMedecin;
-   
-   private int idJoureur;
+
+  
+   private String result;
+   private int idJoueur;
    private boolean resultatTest;
    private String observation;
    private Date date;
     public CompteRendu() {
+    }
+      public CompteRendu(int idCompterendu, int idMedecin, int idJoueur, boolean resultatTest, String observation, Date date) {
+        this.idCompterendu = idCompterendu;
+        this.idMedecin = idMedecin;
+        this.idJoueur = idJoueur;
+        this.resultatTest = resultatTest;
+        this.observation = observation;
+        this.date = date;
+        if (resultatTest){
+            result = "positif";
+        }else{
+            result = "négatif";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "CompteRendu{" + "idCompterendu=" + idCompterendu + ", idMedecin=" + idMedecin + ", result=" + result + ", idJoueur=" + idJoueur + ", resultatTest=" + resultatTest + ", observation=" + observation + ", date=" + date + '}';
     }
 
     public CompteRendu(int idCompterendu, int idMedecin,  int idJoureur, boolean resultatTest, String observation) {
         this.idCompterendu = idCompterendu;
         this.idMedecin = idMedecin;
         
-        this.idJoureur = idJoureur;
+        this.idJoueur = idJoureur;
         this.resultatTest = resultatTest;
         this.observation = observation;
+        if (resultatTest){
+            result = "positif";
+        }else{
+            result = "négatif";
+        }
     }
      public CompteRendu( int idMedecin,  int idJoureur, boolean resultatTest, String observation, Date date) {
         
         this.idMedecin = idMedecin;
         
-        this.idJoureur = idJoureur;
+        this.idJoueur = idJoureur;
         this.resultatTest = resultatTest;
         this.observation = observation;
         this.date = date;
+         if (resultatTest){
+            result = "positif";
+        }else{
+            result = "négatif";
+        }
     }
 
     public Date getDate() {
         return date;
     }
 
+    public String getResult() {
+        return result;
+    }
+
+    
     public void setDate(Date date) {
         this.date = date;
     }
@@ -61,8 +96,8 @@ public class CompteRendu {
 
    
 
-    public int getIdJoureur() {
-        return idJoureur;
+    public int getIdJoueur() {
+        return idJoueur;
     }
 
     public boolean isResultatTest() {
@@ -83,8 +118,8 @@ public class CompteRendu {
 
     
 
-    public void setIdJoureur(int idJoureur) {
-        this.idJoureur = idJoureur;
+    public void setIdJoueur(int idJoueur) {
+        this.idJoueur = idJoueur;
     }
 
     public void setResultatTest(boolean resultatTest) {

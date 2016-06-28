@@ -119,4 +119,20 @@ public class MedecinDAO implements InterfaceMedecinDAO {
         }
         return liste;
     }
+
+    public Medecin getMedecin(int idMedecin) {
+        Medecin m = new Medecin();
+        try {
+            String req = "SELECT * FROM `medecin` WHERE `idMedecin` = ?";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1, idMedecin);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()){
+            m = new Medecin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(7));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MedecinDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return m;
+    }
 }

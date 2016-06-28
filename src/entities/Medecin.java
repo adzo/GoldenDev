@@ -22,9 +22,17 @@ public class Medecin {
  private String adresse ;
  private int telephone ;
  private String sexeMedecin ;
+
  public static List<Medecin> listes;
 
     public Medecin() {
+    }
+
+    public Medecin(int idMedecin, String nom, String prenom, int telephone) {
+        this.idMedecin = idMedecin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
     }
 
     public Medecin(int idMedecin, String nom, String prenom, Date dateNaissance, int cin, String adresse) {

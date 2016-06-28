@@ -52,7 +52,8 @@ public class FXMLMainController implements Initializable {
     private Label status;
     @FXML
     private Label connectedNom;
-
+    @FXML
+    private Label activeWindow;
     @FXML
     private Button gestionMenu;
     @FXML
@@ -66,6 +67,8 @@ public class FXMLMainController implements Initializable {
     @FXML
     private Accordion docPanel;
     @FXML
+    private Accordion responsablePanel;
+    @FXML
     private Accordion userPanel;
     @FXML
     private ImageView changeLogin;
@@ -77,6 +80,8 @@ public class FXMLMainController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        activeWindow.setText("Bienvenue");
         /**
          * *Setting the icons
          */
@@ -115,38 +120,42 @@ public class FXMLMainController implements Initializable {
         /**
          * Initialisation of access
          */
+        // <editor-fold  defaultstate="collapsed">
         switch (AllUsers.connected.getType()){
                             case "arbitre":
                                 
                                 adminPanel.setVisible(false);
                                 userPanel.setVisible(false);
                                 docPanel.setVisible(false);
+                                responsablePanel.setVisible(false);
                                 break;
-                            case "Joueur":
-                                
+                            case "joueur":
+                                responsablePanel.setVisible(false);
                                 adminPanel.setVisible(false);
                                 userPanel.setVisible(false);
                                 docPanel.setVisible(false);
                                 break;
-                            case "ResponsableAD":
-                                
+                            case "responsablead":
+                                responsablePanel.setVisible(true);
                                 adminPanel.setVisible(false);
                                 userPanel.setVisible(false);
                                 docPanel.setVisible(false);
                                 break;
-                            case "User" :
-                                
+                            case "user" :
+                                responsablePanel.setVisible(false);
                                 adminPanel.setVisible(false);
                                 userPanel.setVisible(true);
                                 docPanel.setVisible(false);
                                 break;
-                            case "Medecin" :
+                            case "medecin" :
+                                responsablePanel.setVisible(false);
                                 adminPanel.setVisible(false);
                                 userPanel.setVisible(false);
                                 docPanel.setVisible(true);
                                 
                                 break;
                             case "admin":
+                                responsablePanel.setVisible(false);
                                 adminPanel.setVisible(true);
                                 userPanel.setVisible(false);
                                 docPanel.setVisible(false);
@@ -161,6 +170,7 @@ public class FXMLMainController implements Initializable {
             adminPanel.setVisible(true);
             userPanel.setVisible(false);
         }
+        // </editor-fold>
     }
 
     @FXML
@@ -171,44 +181,66 @@ public class FXMLMainController implements Initializable {
     // <editor-fold  defaultstate="collapsed">
     @FXML
     public void loadAllUsers() throws IOException {
+        activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiAllUsers/FXMLGuiAllUsers.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion All Users");
     }
     public void loadUsers() throws IOException{
+        activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLAfficherUser.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion des Fans");
     }
     
     public void loadMedecins() throws IOException{
+        activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiMedecin/FXMLAfficherMedecins.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion Medecins");
         
     }
     public void loadResponsable()throws IOException{
+        activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLAfficherResponsables.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion Responsables");
     }
 
     public void loadJoueur() throws IOException{
+        activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiJoueur/FXMLafficherJoueur.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion Joueurs");
     }
     
     
         // <editor-fold> partie Medecin
         public void ajouterCompteRendu() throws IOException{
+        activeWindow.setText("Loading...");
             Parent root = FXMLLoader.load(getClass().getResource("/guiCompteRendu/FXMLAjoutCompteRendu.fxml"));
             centerPane.getChildren().clear();
             centerPane.getChildren().add(root);
+        activeWindow.setText("Ajouter Un Compte Rendu");
         }
         
         // </editor-fold>
     
+        // <editor-fold> partie RespopnsableAntiDopage
+        public void loadCompteRendu() throws IOException{
+        activeWindow.setText("Loading...");
+            Parent root = FXMLLoader.load(getClass().getResource("/guiCompteRendu/FXMLAfficherCompteRendu.fxml"));
+            centerPane.getChildren().clear();
+            centerPane.getChildren().add(root);
+        activeWindow.setText("Compte Rendus");
+        }
+        
+        // </editor-fold>
     // </editor-fold>
     @FXML
     public void login(MouseEvent event) throws IOException {
