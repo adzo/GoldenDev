@@ -24,6 +24,15 @@ public class Club {
     public Club() {
     }
 
+    public Club(int idClub, String nomClub, String adresseClub, Date dateFondation, int telephoneClub, String presidentClub) {
+        this.idClub = idClub;
+        this.nomClub = nomClub;
+        this.adresseClub = adresseClub;
+        this.dateFondation = dateFondation;
+        this.telephoneClub = telephoneClub;
+        this.presidentClub = presidentClub;
+    }
+
     public Club(String nomClub, String adresseClub) {
         this.nomClub = nomClub;
         this.adresseClub = adresseClub;

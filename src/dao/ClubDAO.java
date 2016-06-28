@@ -3,6 +3,7 @@ package dao;
 import com.mysql.jdbc.Connection;
 import entities.Club;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +29,24 @@ public class ClubDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ClubDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public Club getClub(int id){
+        ResultSet rs = null;
+        Club c = new Club();
+        try {
+            
+            String req ="SELECT * FROM `club` WHERE `idClub` = ?";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1,id);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                c = new Club(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getInt(5), rs.getString(6));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClubDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return c;
     }
     
 }
