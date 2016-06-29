@@ -42,7 +42,7 @@ public class FXMLLoginController implements Initializable {
     @FXML
     private ImageView logo;
     @FXML
-    private ImageView loadingGif;
+    public ImageView loadingGif;
     
     /**
      * Initializes the controller class.
@@ -52,19 +52,24 @@ public class FXMLLoginController implements Initializable {
         // TODO
         Image ico = new Image("resources/Icons/Main_TFT.png");
         logo.setImage(ico);
+         
         Image load = new Image("resources/Icons/loading.gif");
-             //admin   + );
         loadingGif.setImage(load);
-        loadingGif.setVisible(true);
+        loadingGif.setVisible(false);
         
     }
-
+    public void loadingGif(){
+        loadingGif.setVisible(true);
+    }
+    
     public void verifierLogin(ActionEvent event) throws IOException {
-        loadingGif.setVisible(false);
+       
+        System.err.println("Verification...");
         String log = login.getText();
         //String typ;
         String password = pass.getText();
         if (!log.equals("") && !password.equals("")) {
+            
             AllUsers s = new AllUsers();
             AllUsersDAO p = new AllUsersDAO();
             s = p.verifier(log, password);
@@ -72,12 +77,14 @@ public class FXMLLoginController implements Initializable {
                 //typ = s.getType();
                 textTarget.setText(s.getType() + " connecté");
                 AllUsers.connected = s;
-                if (!s.getType().equals("admin")){
-                    AllUsers.modifiedUser=s;
+                AllUsers.modifiedUser=s;
+                if (s.getType().equals("admin")){
+                   AllUsers.modifiedUser= null;
                 }
                 this.ouvrirMain(event);
             } else {
                 textTarget.setText("Login erroné!!");
+                loadingGif.setVisible(false);
             }
         } else {
             textTarget.setText("Champs vides!!");

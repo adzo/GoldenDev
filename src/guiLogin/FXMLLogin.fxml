@@ -39,7 +39,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#verifierLogin" prefHeight="28.0" prefWidth="56.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" text="Sing in" />
+            <Button mnemonicParsing="false" onAction="#verifierLogin" onMouseClicked="#loadingGif" prefHeight="28.0" prefWidth="56.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" text="Sing in" />
             <Button id="cancelButton" mnemonicParsing="false" onAction="#close" prefHeight="27.0" prefWidth="58.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" text="Quit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
          </children>
       </GridPane>

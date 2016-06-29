@@ -69,24 +69,6 @@
                       </TitledPane>
                     </panes>
                   </Accordion>
-                  <Accordion fx:id="docPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
-                    <panes>
-                      <TitledPane animated="false" text="untitled 1">
-                           <content>
-                              <VBox spacing="5.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#ajouterCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Créer Compte Rendu" />
-                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Afficher Mes Comptes Rendus" />
-                                 </children>
-                                 <padding>
-                                    <Insets top="5.0" />
-                                 </padding>
-                              </VBox>
-                           </content>
-                        </TitledPane>
-                      <TitledPane animated="false" text="untitled 2" />
-                    </panes>
-                  </Accordion>
                   <Accordion fx:id="adminPanel" layoutX="13.0" layoutY="62.0" prefHeight="320.0" prefWidth="223.0">
                     <panes>
                       <TitledPane animated="false" text="Gestion Users">
@@ -196,6 +178,24 @@
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
                       </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <Accordion fx:id="docPanel" layoutX="13.0" layoutY="62.0" prefHeight="292.0" prefWidth="223.0">
+                    <panes>
+                      <TitledPane animated="false" text="Test Anti Dopage">
+                           <content>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#ajouterCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Créer Compte Rendu" />
+                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Afficher Mes Comptes Rendus" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                      <TitledPane animated="false" text="untitled 2" />
                     </panes>
                   </Accordion>
                </children>
