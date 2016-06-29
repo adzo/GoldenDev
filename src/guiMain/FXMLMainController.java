@@ -17,6 +17,8 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
@@ -47,6 +49,7 @@ import javafx.util.Duration;
  * @author AD ZO
  */
 public class FXMLMainController implements Initializable {
+
     // Déclaration des variables
     // <editor-fold  defaultstate="collapsed"> 
     @FXML
@@ -66,6 +69,8 @@ public class FXMLMainController implements Initializable {
     @FXML
     private ImageView background;
     @FXML
+    private ImageView home;
+    @FXML
     private Label welcome;
     @FXML
     private Pane centerPane;
@@ -81,20 +86,22 @@ public class FXMLMainController implements Initializable {
     private ImageView changeLogin;
     @FXML
     private MenuItem about;
+
     // </editor-fold> 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         activeWindow.setText("Bienvenue");
 
-   
-        
         /**
          * *Setting the icons
          */
+        Image home32 = new Image("resources/Icons/home32.png");
+        home.setImage(home32);
+        
         Image back = new Image("resources/Backgrounds/top-background.png");
         background.setImage(back);
         Image ico = new Image("resources/Icons/Disconnect2.png");
@@ -128,52 +135,63 @@ public class FXMLMainController implements Initializable {
          * *Setting the InfoBar
          */
         status.setText(AllUsers.connected.getType() + " |  ID = '" + AllUsers.connected.getId() + "'");
+        
+        if (nomPrenomConnectedUser()!=null){
         connectedNom.setText(nomPrenomConnectedUser());
+        }else{
+            connectedNom.setText("Not Defined");
+            try {
+                modifierMesInfos();
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         /**
          * Initialisation of access
          */
         // <editor-fold  defaultstate="collapsed">
-        switch (AllUsers.connected.getType()){
-                            case "arbitre":
-                                
-                                adminPanel.setVisible(false);
-                                userPanel.setVisible(false);
-                                docPanel.setVisible(false);
-                                responsablePanel.setVisible(false);
-                                break;
-                            case "joueur":
-                                responsablePanel.setVisible(false);
-                                adminPanel.setVisible(false);
-                                userPanel.setVisible(false);
-                                docPanel.setVisible(false);
-                                break;
-                            case "responsablead":
-                                responsablePanel.setVisible(true);
-                                adminPanel.setVisible(false);
-                                userPanel.setVisible(false);
-                                docPanel.setVisible(false);
-                                break;
-                            case "user" :
-                                responsablePanel.setVisible(false);
-                                adminPanel.setVisible(false);
-                                userPanel.setVisible(true);
-                                docPanel.setVisible(false);
-                                break;
-                            case "medecin" :
-                                responsablePanel.setVisible(false);
-                                adminPanel.setVisible(false);
-                                userPanel.setVisible(false);
-                                docPanel.setVisible(true);
-                                
-                                break;
-                            case "admin":
-                                responsablePanel.setVisible(false);
-                                adminPanel.setVisible(true);
-                                userPanel.setVisible(false);
-                                docPanel.setVisible(false);
-                                break;
-                            default: break;
-                        }
+        switch (AllUsers.connected.getType()) {
+            case "arbitre":
+
+                adminPanel.setVisible(false);
+                userPanel.setVisible(false);
+                docPanel.setVisible(false);
+                responsablePanel.setVisible(false);
+                break;
+            case "joueur":
+                responsablePanel.setVisible(false);
+                adminPanel.setVisible(false);
+                userPanel.setVisible(false);
+                docPanel.setVisible(false);
+                break;
+            case "responsablead":
+                responsablePanel.setVisible(true);
+                adminPanel.setVisible(false);
+                userPanel.setVisible(false);
+                docPanel.setVisible(false);
+                break;
+            case "user":
+                responsablePanel.setVisible(false);
+                adminPanel.setVisible(false);
+                userPanel.setVisible(true);
+                docPanel.setVisible(false);
+                break;
+            case "medecin":
+                responsablePanel.setVisible(false);
+                adminPanel.setVisible(false);
+                userPanel.setVisible(false);
+                docPanel.setVisible(true);
+
+                break;
+            case "admin":
+                responsablePanel.setVisible(false);
+                adminPanel.setVisible(true);
+                userPanel.setVisible(false);
+                docPanel.setVisible(false);
+                break;
+            default:
+                break;
+        }
         // </editor-fold>
     }
 
@@ -181,9 +199,16 @@ public class FXMLMainController implements Initializable {
     public void closePlatform() {
         Platform.exit();
     }
-    
+
 //chargement des fenetre
-    
+    //Set Home Page
+    public void home(){
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(background);
+        Image back = new Image("resources/Backgrounds/top-background.png");
+        background.setImage(back);
+        activeWindow.setText("Bienvenue");
+    }
     // Contrôle partie Admin
     // <editor-fold  defaultstate="collapsed">  
     public void loadAllUsers() throws IOException {
@@ -193,14 +218,16 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion All Users");
     }
-    public void loadUsers() throws IOException{
+
+    public void loadUsers() throws IOException {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLAfficherUser.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion des Fans");
     }
-    public void loadClubs() throws IOException{
+
+    public void loadClubs() throws IOException {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiClub/FXMLClubsMain.fxml"));
         centerPane.getChildren().clear();
@@ -208,26 +235,29 @@ public class FXMLMainController implements Initializable {
         Image back = new Image("resources/Backgrounds/top-background.png");
         background.setImage(back);
         centerPane.getChildren().add(root);
-        
+
         activeWindow.setText("Gestion des Clubs");
-        
+
     }
-    public void loadMedecins() throws IOException{
+
+    public void loadMedecins() throws IOException {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiMedecin/FXMLAfficherMedecins.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Medecins");
-        
+
     }
-    public void loadResponsable()throws IOException{
+
+    public void loadResponsable() throws IOException {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLAfficherResponsables.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Responsables");
     }
-    public void loadJoueur() throws IOException{
+
+    public void loadJoueur() throws IOException {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiJoueur/FXMLafficherJoueur.fxml"));
         centerPane.getChildren().clear();
@@ -236,37 +266,51 @@ public class FXMLMainController implements Initializable {
     }
     // </editor-fold>
     // Contrôle partie Medecin
-        // <editor-fold defaultstate="collapsed"> 
-        public void ajouterCompteRendu() throws IOException{
+    // <editor-fold defaultstate="collapsed"> 
+    public void ajouterCompteRendu() throws IOException {
         activeWindow.setText("Loading...");
-            Parent root = FXMLLoader.load(getClass().getResource("/guiCompteRendu/FXMLAjoutCompteRendu.fxml"));
-            centerPane.getChildren().clear();
-            centerPane.getChildren().add(root);
+        Parent root = FXMLLoader.load(getClass().getResource("/guiCompteRendu/FXMLAjoutCompteRendu.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
         activeWindow.setText("Ajouter Un Compte Rendu");
-        }
+    }
 
-        // </editor-fold>
+    // </editor-fold>
     // Contrôle partie RespopnsableAntiDopage
-        // <editor-fold defaultstate="collapsed"> 
-        public void loadCompteRendu() throws IOException{
+    // <editor-fold defaultstate="collapsed"> 
+    public void loadCompteRendu() throws IOException {
         activeWindow.setText("Loading...");
-            Parent root = FXMLLoader.load(getClass().getResource("/guiCompteRendu/FXMLAfficherCompteRendu.fxml"));
-            centerPane.getChildren().clear();
-            centerPane.getChildren().add(root);
-            activeWindow.setText("Compte Rendus");
-        }
-        
-        // </editor-fold>
+        Parent root = FXMLLoader.load(getClass().getResource("/guiCompteRendu/FXMLAfficherCompteRendu.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Compte Rendus");
+    }
+
+    // </editor-fold>
     // Contrôle partie Users
-        // <editor-fold defaultstate="collapsed"> 
-        public void modifierMesInfosUser() throws IOException{
-            Parent root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
-            centerPane.getChildren().clear();
-            centerPane.getChildren().add(root);
-        activeWindow.setText("Modifier Mes Infos");
+    // <editor-fold defaultstate="collapsed"> 
+    public void modifierMesInfos() throws IOException {
+        Parent root;
+        switch (AllUsers.connected.getType()) {
+            case "user":
+                root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
+                break;
+            case "medecin":
+                root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
+                break;
+            case "responsableAD":
+                root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
+                break;
+            default:
+                root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
+                break;
         }
-        // </editor-fold>
-    
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Modifier Mes Infos");
+    }
+    // </editor-fold>
+
     @FXML
     public void login(MouseEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -282,7 +326,9 @@ public class FXMLMainController implements Initializable {
     }
 
     public String nomPrenomConnectedUser() {
-        String result = "Not defined";
+        String nom = "Not defined";
+        String prenom = "Not Defined";
+        String result = "Not Defined";
         int i = AllUsers.connected.getId();
         String type = AllUsers.connected.getType();
 
@@ -304,7 +350,14 @@ public class FXMLMainController implements Initializable {
                 break;
             case "user":
                 UserDAO udao = new UserDAO();
-                result = udao.nomPrenomUser(i);
+                nom = udao.nomUser(i);
+                prenom = udao.prenomUser(i);
+                if(nom!=null && prenom!= null){
+                    result = nom + ", "+prenom;
+                }else {
+                    result = null;
+                }
+                
                 break;
             case "medecin":
                 MedecinDAO mdao = new MedecinDAO();

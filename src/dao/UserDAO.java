@@ -129,10 +129,9 @@ public class UserDAO implements InterfaceUserDAO {
         return listeUsers;
     }
     
-    public String nomPrenomUser(int i){
+    public String nomUser(int i){
         String nom =null;
-        String prenom=null;
-        String res;
+        
         
         String req ="SELECT  `nom`, `prenom` FROM `user` WHERE `idUser` = ?";
         try {
@@ -142,17 +141,36 @@ public class UserDAO implements InterfaceUserDAO {
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
                 nom = rs.getString(1);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ArbitreDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return nom;
+    }
+    public String prenomUser(int i){
+        
+        String prenom=null;
+        
+        
+        String req ="SELECT  `nom`, `prenom` FROM `user` WHERE `idUser` = ?";
+        try {
+            pst=connection.prepareStatement(req);
+        
+        pst.setInt(1,i);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+                
                 prenom = rs.getString(2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ArbitreDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        if (nom == null) nom ="not defined";
-        
-        if (prenom == null) prenom = "not defined";
-        res = nom + ", "+prenom;
-        return res;
+       
+        return prenom;
     }
     
 }
