@@ -18,7 +18,9 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -36,8 +38,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -61,6 +63,10 @@ public class FXMLMainController implements Initializable {
     @FXML
     private ImageView logo;
     @FXML
+    private ImageView background;
+    @FXML
+    private Label welcome;
+    @FXML
     private Pane centerPane;
     @FXML
     private Accordion adminPanel;
@@ -82,9 +88,14 @@ public class FXMLMainController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         activeWindow.setText("Bienvenue");
+
+   
+        
         /**
          * *Setting the icons
          */
+        Image back = new Image("resources/Backgrounds/top-background.png");
+        background.setImage(back);
         Image ico = new Image("resources/Icons/Disconnect2.png");
         closeImage.setImage(ico);
         Image ico2 = new Image("resources/Icons/Main_TFT.png");
@@ -178,7 +189,7 @@ public class FXMLMainController implements Initializable {
         Platform.exit();
     }
     //chargement des fenetre
-    // <editor-fold  defaultstate="collapsed">
+    // <editor-fold  defaultstate="collapsed">  partie Admin
     @FXML
     public void loadAllUsers() throws IOException {
         activeWindow.setText("Loading...");
@@ -250,6 +261,15 @@ public class FXMLMainController implements Initializable {
         activeWindow.setText("Compte Rendus");
         }
         
+        // </editor-fold>
+        
+        // <editor-fold> partie Users
+        public void modifierMesInfosUser() throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
+            centerPane.getChildren().clear();
+            centerPane.getChildren().add(root);
+        activeWindow.setText("Modifier Mes Infos");
+        }
         // </editor-fold>
     // </editor-fold>
     @FXML

@@ -73,4 +73,11 @@ public  class DateGoldenDev {
         cal.set(Calendar.YEAR, dateLocale.getYear());
         return cal.getTime();
         }
+    
+//    public static LocalDate dateToLocalDate(Date date){
+//        LocalDate resultat;
+//        resultat = new LocalDate();
+//        
+//        return resultat;
+//    }
 }

@@ -85,7 +85,7 @@ public class UserDAO implements InterfaceUserDAO {
             pst.setInt(6, u.getTel());
             pst.setString(7, u.getMail());
             pst.setInt(8, AllUsers.modifiedUser.getId());
-            pst.executeQuery();
+            pst.executeUpdate();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,8 +94,19 @@ public class UserDAO implements InterfaceUserDAO {
     }
 
     @Override
-    public User search(User u) {
-        
+    public User search(int id) {
+        User u = new User();
+        try {
+            String req = "SELECT * FROM `user` WHERE `idUser` = ? ";
+            pst = connection.prepareStatement(req);
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getString(6), rs.getInt(7) , rs.getString(8));
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return u;
     }
 

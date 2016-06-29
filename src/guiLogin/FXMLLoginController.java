@@ -72,8 +72,9 @@ public class FXMLLoginController implements Initializable {
                 //typ = s.getType();
                 textTarget.setText(s.getType() + " connecté");
                 AllUsers.connected = s;
-                System.out.println(AllUsers.connected);
-                
+                if (!s.getType().equals("admin")){
+                    AllUsers.modifiedUser=s;
+                }
                 this.ouvrirMain(event);
             } else {
                 textTarget.setText("Login erroné!!");

@@ -16,6 +16,6 @@ public interface InterfaceUserDAO {
     public boolean add(User u);
     public boolean delete();
     public boolean update(User u);
-    public User search(User u);
+    public User search(int i);
     public ArrayList<User> afficherTout();
 }
