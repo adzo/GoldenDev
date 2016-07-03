@@ -126,7 +126,7 @@ public class ResponsableAdDAO implements InterfaceResponsableAD {
         }
         return liste;
     }
-          public ResponsableAd search(int idResponsable) {
+    public ResponsableAd search(int idResponsable) {
         ResponsableAd r = new ResponsableAd();
         try {
             String req = "SELECT * FROM `responsablead` WHERE `idResponsable` = ? ";
