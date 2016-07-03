@@ -57,9 +57,16 @@
                               </AnchorPane>
                         </content>
                       </TitledPane>
-                      <TitledPane animated="false" text="untitled 2">
+                      <TitledPane animated="false" text="Modifier Mes Infos">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#modifierMesInfos" prefHeight="25.0" prefWidth="220.0" text="Modifier Mes Infos" />
+                                       </children>
+                                    </VBox>
+                                 </children></AnchorPane>
                         </content>
                       </TitledPane>
                       <TitledPane animated="false" text="untitled 3">
@@ -195,7 +202,14 @@
                               </VBox>
                            </content>
                         </TitledPane>
-                      <TitledPane animated="false" text="untitled 2" />
+                      <TitledPane animated="false" text="Modifier Mes Infos">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#modifierMesInfos" prefHeight="31.0" prefWidth="237.0" text="Modifier mes infos" />
+                                 </children>
+                              </VBox>
+                           </content></TitledPane>
                     </panes>
                   </Accordion>
                </children>
