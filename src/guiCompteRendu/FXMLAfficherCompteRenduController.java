@@ -30,7 +30,7 @@ import javafx.scene.shape.Rectangle;
 /**
  * FXML Controller class
  *
- * @author Abdelaziz
+ * @author mohamedaziz
  */
 public class FXMLAfficherCompteRenduController implements Initializable {
 
