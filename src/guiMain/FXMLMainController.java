@@ -298,7 +298,7 @@ public class FXMLMainController implements Initializable {
             case "medecin":
                 root = FXMLLoader.load(getClass().getResource("/guiMedecin/FXMLModifierMesInfos.fxml"));
                 break;
-            case "responsableAD":
+            case "responsablead":
                 root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLModifierMesInfos.fxml"));
                 break;
             default:
