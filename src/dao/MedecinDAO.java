@@ -68,8 +68,24 @@ public class MedecinDAO implements InterfaceMedecinDAO {
 
     @Override
     public boolean update(Medecin m) {
-
-        return true;
+try {
+            String req = "UPDATE `medecin` SET `nom`=?,"
+                    + "`prenom`=?,`dateNaissance`=?,`cin`=?,"
+                    + "`adresse`=?"
+                    + "WHERE `idMedecin` = ?";
+            pst = connection.prepareStatement(req);
+            pst.setString(1, m.getNom());
+            pst.setString(2, m.getPrenom());
+             pst.setObject(3, m.getDateNaissance());
+            pst.setInt(4, m.getCin());
+            pst.setString(5, m.getAdresse());
+            pst.setInt(6, AllUsers.modifiedUser.getId());
+            pst.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     public String nomPrenomMedecin(int i) {
@@ -128,11 +144,12 @@ public class MedecinDAO implements InterfaceMedecinDAO {
             pst.setInt(1, idMedecin);
             ResultSet rs = pst.executeQuery();
             while (rs.next()){
-            m = new Medecin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(7));
+            m = new Medecin(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getDate(4) ,rs.getInt(5),rs.getString(6));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MedecinDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return m;
     }
+ 
 }
