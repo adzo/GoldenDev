@@ -296,10 +296,10 @@ public class FXMLMainController implements Initializable {
                 root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
                 break;
             case "medecin":
-                root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/guiMedecin/FXMLModifierMesInfos.fxml"));
                 break;
             case "responsableAD":
-                root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLModifierMesInfos.fxml"));
                 break;
             default:
                 root = FXMLLoader.load(getClass().getResource("/guiUser/FXMLModifierMesInfos.fxml"));
