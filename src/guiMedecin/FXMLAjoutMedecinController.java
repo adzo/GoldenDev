@@ -28,7 +28,7 @@ import utils.DateGoldenDev;
 /**
  * FXML Controller class
  *
- * @author AD ZO
+ * @author mohamedaziz
  */
 public class FXMLAjoutMedecinController implements Initializable {
     
