@@ -20,7 +20,7 @@ import javafx.stage.StageStyle;
 
 /**
  *
- * @author AD ZO
+ * @author mohamedaziz
  */
 public class AjoutMedecin extends Application {
     
