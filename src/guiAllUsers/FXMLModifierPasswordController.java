@@ -57,7 +57,8 @@ public class FXMLModifierPasswordController implements Initializable {
                 p.modifierPassword(AllUsers.modifiedUser);
                 Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
                 stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
-                AllUsers.modifiedUser = null;
+                AllUsers.modifiedUser.setMdp(newPass1);
+                
                 textTarget.setText("Password updated with success");
             }else {
                 textTarget.setText("Password doesn't match");

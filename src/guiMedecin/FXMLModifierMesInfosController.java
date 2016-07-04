@@ -84,9 +84,19 @@ private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/
         // </editor-fold>
     }  
      public void valider(){
-        m = getMedecinInfo();
-        System.out.println(m);
-        updateInfo(m);
+        int carteIn;
+        try {
+            carteIn = Integer.parseInt(cin.getText());
+            m = getMedecinInfo();
+            System.out.println(m);
+            updateInfo(m);
+        } catch (NumberFormatException e) {
+            carteIn = 0;
+            cin.clear();
+            cin.setPromptText("Invalid cin");
+        }
+         
+        
     }
     
     public Medecin getMedecinInfo(){

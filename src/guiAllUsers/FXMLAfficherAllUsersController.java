@@ -83,7 +83,7 @@ public class FXMLAfficherAllUsersController implements Initializable {
              public void handle(WindowEvent we) {
                 
                      refreshTable();
-                 
+                     AllUsers.modifiedUser = null;
             }
         });
             
