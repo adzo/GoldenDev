@@ -8,6 +8,7 @@ package guiMedecin;
 import dao.MedecinDAO;
 import entities.AllUsers;
 import entities.Medecin;
+import guiAllUsers.ModifierPassword;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +20,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import utils.DateGoldenDev;
 
 /**
@@ -108,5 +110,11 @@ private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/
         }
     }
 
+    
+    public void changePassword(){
+        Stage log = new Stage();
+        ModifierPassword changePass = ModifierPassword.getInstance();
+        changePass.start(log);
+    }
     
 }

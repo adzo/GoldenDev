@@ -8,17 +8,22 @@ package guiResponsable;
 import dao.ResponsableAdDAO;
 import entities.AllUsers;
 import entities.ResponsableAd;
+import guiAllUsers.ModifierPassword;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.ResourceBundle;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import utils.DateGoldenDev;
 
 /**
@@ -85,12 +90,47 @@ public class FXMLModifierMesInfosController implements Initializable {
 
     }
          public void valider(){
+             int carteIn;
+        try {
+            carteIn = Integer.parseInt(cin.getText());
+        } catch (NumberFormatException e) {
+            carteIn = 0;
+            cin.clear();
+            cin.setPromptText("Invalid cin");
+        }
+        
+        int telep;
+        try {
+            telep = Integer.parseInt(telephone.getText());
+        } catch (NumberFormatException e) {
+            telep = 0;
+            telephone.clear();
+            telephone.setPromptText("Invalid phone number");
+        }
+        if (carteIn == 0) {
+            msg.setText("Carte cin invalid");
+            
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.millis(2000),
+                    ae -> msg.setText("")));
+            timeline.play();
+        } else if (telep == 0) {
+            msg.setText("Telephone invalid");
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.millis(2000),
+                    ae -> msg.setText("")));
+            timeline.play();
+        } else {
+             
         r = getUserInfo();
         System.out.println(r);
         updateInfo(r);
+        }
     }
     
     public ResponsableAd getUserInfo(){
+        
+        
         ResponsableAd rs = new ResponsableAd();
         rs.setNom(nom.getText());
         rs.setPrenom(prenom.getText());
@@ -110,6 +150,12 @@ public class FXMLModifierMesInfosController implements Initializable {
         }else{
             msg.setText("Problème inconnu");
         }
+    }
+    
+    public void changePassword(){
+        Stage log = new Stage();
+        ModifierPassword changePass = ModifierPassword.getInstance();
+        changePass.start(log);
     }
     }    
     
