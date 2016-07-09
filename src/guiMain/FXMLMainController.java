@@ -251,7 +251,7 @@ public class FXMLMainController implements Initializable {
 
     public void loadResponsable() throws IOException {
         activeWindow.setText("Loading...");
-        Parent root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLAfficherResponsables.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLAfficherResponsables"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Responsables");
@@ -264,7 +264,14 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Joueurs");
     }
-    // </editor-fold>
+    public void loadFormation() throws IOException {
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiFormation/FXMLGestionFormations.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion Formation");
+    }
+                                                                                                                                                                                                                                        // </editor-fold>
     // Contrôle partie Medecin
     // <editor-fold defaultstate="collapsed"> 
     public void ajouterCompteRendu() throws IOException {
