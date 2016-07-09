@@ -7,6 +7,7 @@
 package entities;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -23,8 +24,19 @@ public class Arbitre {
    private String categorie;
    private String sexeArbitre;
    private String photoArbitre;
+ public static List<Arbitre> listes;
 
     public Arbitre() {
+    }
+
+    public Arbitre(int idArbitre, String nom, String prenom, Date dateNaissance, int cin, String adresse, String categorie) {
+        this.idArbitre = idArbitre;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.cin = cin;
+        this.adresse = adresse;
+        this.categorie = categorie;
     }
 
     public Arbitre(int idArbitre, String nom, String prenom, Date dateNaissance, int cin, String adresse, String categorie, String sexeArbitre, String photoArbitre) {
