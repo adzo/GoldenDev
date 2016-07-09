@@ -130,7 +130,7 @@
                                              </VBox.margin>
                                           </Button>
                                           <Button layoutX="10.0" layoutY="15.0" mnemonicParsing="false" prefWidth="221.0" text="Reservations Des Matchs" />
-                                          <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" prefWidth="221.0" text="Formations Arbitre" />
+                                          <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" onAction="#loadFormation" prefWidth="221.0" text="Formations Arbitre" />
                                           <Button mnemonicParsing="false" prefWidth="221.0" text="Concours Arbitre" />
                                           <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" prefWidth="221.0" text="Stades" />
                                           <Button layoutX="10.0" layoutY="135.0" mnemonicParsing="false" prefWidth="221.0" text="Compétitions" />
