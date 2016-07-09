@@ -18,6 +18,7 @@ public class Formation {
    private String lieu;
    private Date dateOuverture;
    private Date dateFermeture;
+    public static java.util.List<Formation> listes;
 
     public Formation() {
     }
