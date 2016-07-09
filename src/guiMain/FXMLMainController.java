@@ -251,7 +251,7 @@ public class FXMLMainController implements Initializable {
 
     public void loadResponsable() throws IOException {
         activeWindow.setText("Loading...");
-        Parent root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLAfficherResponsables"));
+        Parent root = FXMLLoader.load(getClass().getResource("/guiResponsable/FXMLAfficherResponsables.fxml"));
         centerPane.getChildren().clear();
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Responsables");
