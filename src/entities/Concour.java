@@ -6,19 +6,22 @@
 
 package entities;
 
+import java.util.Date;
+
 /**
  *
  * @author ift
  */
 public class Concour {
    private int idConcour;
-   private String date;
+   private Date date;
    private String lieu;
+   public static java.util.List<Concour> listes;
 
     public Concour() {
     }
 
-    public Concour(int idConcour, String date, String lieu) {
+    public Concour(int idConcour, Date date, String lieu) {
         this.idConcour = idConcour;
         this.date = date;
         this.lieu = lieu;
@@ -28,7 +31,7 @@ public class Concour {
         return idConcour;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -40,7 +43,7 @@ public class Concour {
         this.idConcour = idConcour;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
