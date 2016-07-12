@@ -102,6 +102,8 @@ private Pane pAdd ;
  ConcourDAO fdao = new ConcourDAO();
     ObservableList<Concour> data;
     Concour c = new Concour();
+            ParticipationConcourDAO pF = new ParticipationConcourDAO();
+
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     
   public void actualiserTAB(){
@@ -182,33 +184,35 @@ private Pane pAdd ;
      
     public void selectedElement(){
         c  = tableauC.getSelectionModel().getSelectedItem();
-        //System.out.println(u);
+        System.out.println(c);
         modifierContent(c);
-        System.out.println(c.toString());
     }
     
-    public void participationConcour(){
-     ParticipationConcourDAO pF = new ParticipationConcourDAO();
-
+    public void participationConcour(){ 
+ 
      if(pF.verifierParticipation(c.getIdConcour(), AllUsers.connected.getId())){
+         participer.setText("Annuler Participer");
          alert.setAlertType(Alert.AlertType.CONFIRMATION);
+              alert.setContentText(AllUsers.connected.getLogin()+" voulez vous participez ");
+
            alert.setTitle("Participation");
-           alert.setContentText("Volez vous participez?!");
              alert.showAndWait();
 
       // if(alert.getAlertType().CONFIRMATION.equals(false)){
     pF.participer(c.getIdConcour(), AllUsers.connected.getId());
      alert.setAlertType(Alert.AlertType.INFORMATION);
-     alert.setContentText(AllUsers.connected.getLogin()+" votre participation à été effectué à la Concour "+c.getIdConcour()+" :)");
+     alert.setContentText(AllUsers.connected.getLogin()+" votre participation à été effectué  :)");
     alert.showAndWait();
 
    }
      else{ System.err.println("Arbitre déjà participé!!");
-     alert.setAlertType(Alert.AlertType.ERROR);
-     alert.setTitle("Participation Impossible");
-      alert.setContentText(AllUsers.connected.getLogin()+" déjà participé à la Concour "+c.getIdConcour()+"!!");
-        alert.showAndWait();
+     alert.setAlertType(Alert.AlertType.CONFIRMATION);
+           alert.setTitle("Annuler Participation");
+             alert.showAndWait();
+     pF.AnnulerParticipation(c.getIdConcour(), AllUsers.connected.getId());
+      participer.setText("Participer");
      }
+    
     
     }
     
@@ -217,11 +221,25 @@ private Pane pAdd ;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+             if(pF.verifierParticipation(c.getIdConcour(), AllUsers.connected.getId())){
+             
+               alert.setTitle("Annuler Participation");
+             
+             }
+             else {           
+                      participer.setText("Participer");
+
+             }
+
        if("admin".equals(AllUsers.connected.getType())){
            pAdmin.setVisible(true);
            pArbitre.setVisible(false);
        }
-
+          else{ 
+             pAdmin.setVisible(false);
+            pArbitre.setVisible(true);}
         idCT.setCellValueFactory(new PropertyValueFactory<>("idConcour"));
         lieuCT.setCellValueFactory(new PropertyValueFactory<>("lieu"));
 
