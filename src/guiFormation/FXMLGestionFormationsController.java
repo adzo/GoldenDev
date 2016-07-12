@@ -126,6 +126,8 @@ public class FXMLGestionFormationsController implements Initializable {
    
    
     FormationDAO fdao = new FormationDAO();
+         ParticipationDAO pF = new ParticipationDAO();
+
     ObservableList<Formation> data;
     Formation f = new Formation();
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -278,12 +280,13 @@ public class FXMLGestionFormationsController implements Initializable {
     }
     
     public void participationFormation(){
-     ParticipationDAO pF = new ParticipationDAO();
  
      if(pF.verifierParticipation(f.getIdFormation(), AllUsers.connected.getId())){
-         participer.setText("Participer");
+         participer.setText("Annuler Participer");
          alert.setAlertType(Alert.AlertType.CONFIRMATION);
            alert.setTitle("Participation");
+                alert.setContentText(AllUsers.connected.getLogin()+" Volez vous participez à "+f.getNom()+" :)");
+
              alert.showAndWait();
 
       // if(alert.getAlertType().CONFIRMATION.equals(false)){
@@ -343,11 +346,22 @@ public class FXMLGestionFormationsController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       if("admin".equals(AllUsers.connected.getType())){
-           pAdmin.setVisible(false);
-           pArbitre.setVisible(true);
-       }
+         if(pF.verifierParticipation(f.getIdFormation(), AllUsers.connected.getId())){
+             
+               alert.setTitle("Annuler Participation");
+             
+             }
+             else {           
+                      participer.setText("Participer");
 
+             }
+       if("admin".equals(AllUsers.connected.getType())){
+           pAdmin.setVisible(true);
+           pArbitre.setVisible(false);
+       }
+       else{ 
+             pAdmin.setVisible(false);
+            pArbitre.setVisible(true);}
         id.setCellValueFactory(new PropertyValueFactory<>("idFormation"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         lieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));

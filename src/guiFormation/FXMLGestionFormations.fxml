@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiFormation.FXMLGestionFormationsController">
    <children>
-      <Pane fx:id="pAdmin" layoutX="300.0" prefHeight="401.0" prefWidth="417.0" visible="false">
+      <Pane fx:id="pAdmin" layoutX="300.0" prefHeight="401.0" prefWidth="417.0">
          <children>
             <Pane fx:id="pSupp" layoutX="38.0" layoutY="53.0" prefHeight="187.0" prefWidth="341.0" visible="false">
                <children>
@@ -97,7 +97,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Pane fx:id="pModif" prefHeight="244.0" prefWidth="373.0">
+            <Pane fx:id="pModif" prefHeight="244.0" prefWidth="373.0" visible="false">
                <children>
                   <Rectangle arcHeight="20.0" arcWidth="20.0" height="220.0" layoutX="29.0" layoutY="16.0" strokeType="INSIDE" width="315.0">
                      <fill>
@@ -198,7 +198,7 @@
                   </Button>
                </children>
             </Pane>
-            <Pane fx:id="pAff" layoutX="22.0" layoutY="25.0" prefHeight="261.0" prefWidth="373.0" visible="false">
+            <Pane fx:id="pAff" layoutX="22.0" layoutY="25.0" prefHeight="261.0" prefWidth="373.0">
                <children>
                   <Rectangle arcHeight="20.0" arcWidth="20.0" height="162.0" layoutX="17.0" layoutY="26.0" strokeType="INSIDE" width="357.0">
                      <fill>
@@ -294,7 +294,7 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="pArbitre" layoutX="300.0" prefHeight="401.0" prefWidth="417.0">
+      <Pane fx:id="pArbitre" layoutX="300.0" prefHeight="401.0" prefWidth="417.0" visible="false">
          <children>
             <Pane fx:id="pAff1" prefHeight="400.0" prefWidth="417.0">
                <children>
