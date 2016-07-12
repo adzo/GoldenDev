@@ -44,9 +44,22 @@ try{
      }    }  
 
     @Override
-    public void AnnulerParticipation(int idParticipation) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   public void AnnulerParticipation(int idConcour , int idArbitre) {
+            try{
+        String sql = "DELETE FROM `participationConcour` WHERE idConcour=? and idArbitre=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setObject(1,idConcour);
+        preparedStatement.setObject(2,idArbitre);
+
+
+        preparedStatement.executeUpdate();  }
+catch(SQLException ex){
+         Logger.getLogger(FormationDAO.class.getName()).log(Level.SEVERE, null, ex);
+          
+         }
     }
+
 
     @Override
     public boolean verifierParticipation(int idConcour, int idArbitre) {
