@@ -86,7 +86,7 @@
                                        <children>
                                           <Button mnemonicParsing="false" onAction="#loadAllUsers" prefHeight="26.0" prefWidth="220.0" text="All Users" />
                                           <Button mnemonicParsing="false" onAction="#loadUsers" prefHeight="25.0" prefWidth="220.0" text="Users" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
+                                          <Button mnemonicParsing="false" onAction="#loadArbitre" prefHeight="25.0" prefWidth="220.0" text="Arbitre" />
                                           <Button mnemonicParsing="false" onAction="#loadJoueur" prefHeight="25.0" prefWidth="220.0" text="Joueur" />
                                           <Button mnemonicParsing="false" onAction="#loadMedecins" prefHeight="25.0" prefWidth="220.0" text="Medecins" />
                                           <Button mnemonicParsing="false" onAction="#loadResponsable" prefHeight="25.0" prefWidth="220.0" text="Responsable antidopage" />
@@ -131,7 +131,7 @@
                                           </Button>
                                           <Button layoutX="10.0" layoutY="15.0" mnemonicParsing="false" prefWidth="221.0" text="Reservations Des Matchs" />
                                           <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" onAction="#loadFormation" prefWidth="221.0" text="Formations Arbitre" />
-                                          <Button mnemonicParsing="false" prefWidth="221.0" text="Concours Arbitre" />
+                                          <Button mnemonicParsing="false" onAction="#loadListeConcours" prefWidth="221.0" text="Concours Arbitre" />
                                           <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" prefWidth="221.0" text="Stades" />
                                           <Button layoutX="10.0" layoutY="135.0" mnemonicParsing="false" prefWidth="221.0" text="Compétitions" />
                                        </children>
@@ -211,6 +211,34 @@
                               </VBox>
                            </content></TitledPane>
                     </panes>
+                  </Accordion>
+                  <Accordion fx:id="arbitrePanel" layoutX="23.0" layoutY="72.0" prefHeight="292.0" prefWidth="223.0" visible="false">
+                     <panes>
+                        <TitledPane animated="false" text="Formations&amp;Concours">
+                           <content>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#loadListeFormations" prefHeight="25.0" prefWidth="220.0" text="Liste Formations" />
+                                    <Button mnemonicParsing="false" onAction="#loadListeConcours" prefHeight="25.0" prefWidth="220.0" text="Liste Concours" />
+                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Mes Formations" />
+                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Mes Concours" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Modifier Mes Infos">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#loadModifierProfileArbitre" prefHeight="31.0" prefWidth="237.0" text="Modifier mes infos" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                     </panes>
                   </Accordion>
                </children>
             </Pane>
