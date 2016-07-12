@@ -83,6 +83,8 @@ public class FXMLMainController implements Initializable {
     @FXML
     private Accordion userPanel;
     @FXML
+    private Accordion arbitrePanel;
+    @FXML
     private ImageView changeLogin;
     @FXML
     private MenuItem about;
@@ -152,31 +154,35 @@ public class FXMLMainController implements Initializable {
         // <editor-fold  defaultstate="collapsed">
         switch (AllUsers.connected.getType()) {
             case "arbitre":
-
+                arbitrePanel.setVisible(true);
                 adminPanel.setVisible(false);
                 userPanel.setVisible(false);
                 docPanel.setVisible(false);
                 responsablePanel.setVisible(false);
                 break;
             case "joueur":
+                arbitrePanel.setVisible(false);
                 responsablePanel.setVisible(false);
                 adminPanel.setVisible(false);
                 userPanel.setVisible(false);
                 docPanel.setVisible(false);
                 break;
             case "responsablead":
+                arbitrePanel.setVisible(false);
                 responsablePanel.setVisible(true);
                 adminPanel.setVisible(false);
                 userPanel.setVisible(false);
                 docPanel.setVisible(false);
                 break;
             case "user":
+                arbitrePanel.setVisible(false);
                 responsablePanel.setVisible(false);
                 adminPanel.setVisible(false);
                 userPanel.setVisible(true);
                 docPanel.setVisible(false);
                 break;
             case "medecin":
+                arbitrePanel.setVisible(false);
                 responsablePanel.setVisible(false);
                 adminPanel.setVisible(false);
                 userPanel.setVisible(false);
@@ -184,6 +190,7 @@ public class FXMLMainController implements Initializable {
 
                 break;
             case "admin":
+                arbitrePanel.setVisible(false);
                 responsablePanel.setVisible(false);
                 adminPanel.setVisible(true);
                 userPanel.setVisible(false);
@@ -264,6 +271,13 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Joueurs");
     }
+     public void loadArbitre() throws IOException {
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiArbitre/FXMLafficherArbitre.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Gestion Arbitre");
+    }
     public void loadFormation() throws IOException {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiFormation/FXMLGestionFormations.fxml"));
@@ -272,7 +286,7 @@ public class FXMLMainController implements Initializable {
         activeWindow.setText("Gestion Formation");
     }
                                                                                                                                                                                                                                         // </editor-fold>
-    // Contrôle partie Medecin
+     // Contrôle partie Medecin
     // <editor-fold defaultstate="collapsed"> 
     public void ajouterCompteRendu() throws IOException {
         activeWindow.setText("Loading...");
@@ -281,6 +295,25 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
         activeWindow.setText("Ajouter Un Compte Rendu");
     }
+
+    // </editor-fold>
+    // Contrôle partie Arbitre
+    // <editor-fold defaultstate="collapsed"> 
+    public void loadListeFormations() throws IOException {
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiFormation/FXMLGestionFormations.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Liste des Formations");
+    }
+     public void loadListeConcours() throws IOException {
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiConcours/FXMLGestionConcours.fxml"));
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Liste des concours");
+    }
+     
 
     // </editor-fold>
     // Contrôle partie RespopnsableAntiDopage
