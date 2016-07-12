@@ -220,8 +220,6 @@
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#loadListeFormations" prefHeight="25.0" prefWidth="220.0" text="Liste Formations" />
                                     <Button mnemonicParsing="false" onAction="#loadListeConcours" prefHeight="25.0" prefWidth="220.0" text="Liste Concours" />
-                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Mes Formations" />
-                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Mes Concours" />
                                  </children>
                                  <padding>
                                     <Insets top="5.0" />
@@ -233,7 +231,7 @@
                            <content>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#loadModifierProfileArbitre" prefHeight="31.0" prefWidth="237.0" text="Modifier mes infos" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="Modifier mes infos" />
                                  </children>
                               </VBox>
                            </content>
