@@ -14,7 +14,7 @@ import entities.Participation;
  */
 public interface IParticipationConcourDAO {
     void participer(int idConcour , int idArbitre);
-    void AnnulerParticipation (int idParticipationConcour);
+    void AnnulerParticipation (int idConcour , int idArbitre);
     boolean verifierParticipation (int idConcour , int idArbitre);
     
 }
