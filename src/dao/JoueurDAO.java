@@ -188,4 +188,26 @@ public class JoueurDAO implements InterfaceJoueurDAO {
         return j;
     }
 
-}
+    @Override
+    public boolean changetat(int id, String etat) {
+         try{
+             int et ;
+             if("Positif".equals(etat)){ et=1;}
+             else{ et =0; }
+    String requete="UPDATE `joueur` SET `etat`=?  WHERE `idJoueur`=? ";
+        PreparedStatement preparedStatement;
+    preparedStatement = connection.prepareStatement(requete);
+       preparedStatement.setObject(1,et);
+        preparedStatement.setObject(2,id);
+
+
+    preparedStatement.executeUpdate(); 
+        System.out.println("Mise à jour effectue");}
+     catch(SQLException ex){
+         Logger.getLogger(ArbitreDAO.class.getName()).log(Level.SEVERE, null, ex);
+     }    
+        return true;
+    }
+    }
+
+
