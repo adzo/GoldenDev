@@ -359,9 +359,10 @@ public class FXMLGestionFormationsController implements Initializable {
            pAdmin.setVisible(true);
            pArbitre.setVisible(false);
        }
-       else{ 
-             pAdmin.setVisible(false);
-            pArbitre.setVisible(true);}
+       else{             
+           pArbitre.setVisible(true);
+
+             pAdmin.setVisible(false);}
         id.setCellValueFactory(new PropertyValueFactory<>("idFormation"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         lieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
