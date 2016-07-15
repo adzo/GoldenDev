@@ -139,11 +139,12 @@ private Pane pAdd ;
 
     }
    public void validerAjout(){
-       Concour mc = new Concour(c.getIdConcour(), Date.valueOf(D1M.getValue()),lieuM.getText());
+       Concour mc = new Concour(c.getIdConcour(), Date.valueOf(D1A.getValue()),lieuA.getText());
       fdao.ajoutConcour(mc);
+            actualiserTAB();
+
       pAdd.setVisible(false);
       pAdmin.setVisible(true);
-      
    }
     public void supprimerConcour(){
         pMod.setVisible(false);
