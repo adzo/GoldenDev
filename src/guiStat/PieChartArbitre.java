@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package guiStat;
 
 import java.sql.Connection;
@@ -21,11 +22,10 @@ import utils.DataSource;
 
 /**
  *
- * @author mohamedaziz
-*/
-
-public class PieChartJoueurs extends Application {
-
+ * @author ift
+ */
+public class PieChartArbitre extends Application {
+    
  
 
     //PIE CHART DATA
@@ -36,11 +36,11 @@ public class PieChartJoueurs extends Application {
 
     //MAIN EXECUTOR
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
-        Application.launch(PieChartJoueurs.class, args);
+        Application.launch(PieChartArbitre.class, args);
 
-    }
+    }*/
 
  
 
@@ -55,22 +55,25 @@ public class PieChartJoueurs extends Application {
           try{
 
             c = DataSource.getInstance().getConnection();
-           
+
             //SQL FOR SELECTING NATIONALITY OF CUSTOMER
-
-            String SQL = "SELECT count(idJoueur) FROM `joueur` where etat=1  ";
-            String SQL2 = "SELECT count(idJoueur) FROM `joueur` where etat=0  ";
-              
- 
-
+            
+            String SQL = "SELECT count(idArbitre) FROM arbitre where categArbitre='Amateur'";
+            String SQL2 = "SELECT count(idArbitre) FROM arbitre where categArbitre='International'";
+            String SQL3 = "SELECT count(idArbitre) FROM arbitre where categArbitre='National'"  ;
+           
+               
             ResultSet rs = c.createStatement().executeQuery(SQL);
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
-            while(rs.next() && rs2.next()){
+            ResultSet rs3 = c.createStatement().executeQuery(SQL3);
+          
+            while(rs.next() && rs2.next() && rs3.next()){
 
                 //adding data on piechart data
 
-                data.add(new PieChart.Data("en bon etat",rs.getDouble(1)));
-                data.add(new PieChart.Data("mauvaise etat",rs2.getDouble(1)));
+                data.add(new PieChart.Data("Arbitre Amateur",rs.getDouble(1)));
+                data.add(new PieChart.Data("Arbitre International",rs2.getDouble(1)));
+                data.add(new PieChart.Data("Arbitre National",rs3.getDouble(1)));
 
             }
 
@@ -88,7 +91,6 @@ public class PieChartJoueurs extends Application {
  
 
       @Override
-
       public void start(Stage stage) throws Exception {
 
         //PIE CHART
@@ -108,7 +110,10 @@ public class PieChartJoueurs extends Application {
  
 
         stage.setScene(scene);
-        stage.setTitle("Statistique");
+        stage.setTitle("Statistique Arbitres Grades");
+        stage.setResizable(true);
+        
+        
         stage.show();
 
       }
