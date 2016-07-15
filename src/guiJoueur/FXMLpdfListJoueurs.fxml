@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="guiJoueur.FXMLpdfListJoueursController">
+     <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="101.0" layoutX="192.0" layoutY="162.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
+      <TextField fx:id="nFile" layoutX="315.0" layoutY="200.0" />
+      <ImageView fitHeight="35.0" fitWidth="150.0" layoutX="492.0" layoutY="195.0" onMouseClicked="#filePdf" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../guiArbitre/pdf.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="213.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du Fichier :" />
+   </children>
+</AnchorPane>
