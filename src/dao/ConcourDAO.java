@@ -34,7 +34,7 @@ PreparedStatement pst; //l'entité qui gère la requête
     @Override
     public void ajoutConcour(Concour Concour) {
 try{
-    String requete="INSERT INTO `concour`(`idconcour`,`lieu`, `dateConcour`) VALUES (?,?,?)";
+    String requete="INSERT INTO `concour`(`id_concour`,`dateConcour`, `lieu`) VALUES (?,?,?)";
     PreparedStatement preparedStatement;
     preparedStatement = connection.prepareStatement(requete);
     preparedStatement.setObject(1,null);
