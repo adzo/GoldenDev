@@ -15,4 +15,5 @@ public interface InterfaceJoueurDAO {
     public boolean add(Joueur j);
     public boolean delete();
     public boolean update(Joueur j);
+    public boolean changetat(int id , String etat ) ;
 }
