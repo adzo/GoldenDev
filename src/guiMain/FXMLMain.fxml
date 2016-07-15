@@ -108,7 +108,9 @@
                                        <children>
                                           <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="221.0" text="Liste Compte Rendu" />
                                           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Liste Joueurs Disqualifiés" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Formation Arbitres" />
+                                          <Button mnemonicParsing="false" onAction="#loadListeConcours" prefWidth="221.0" text="Concours Arbitre" />
+                                          <Button mnemonicParsing="false" onAction="#loadFormation" prefWidth="221.0" text="Formations Arbitre" />
+                                          <Button mnemonicParsing="false" onAction="#loadStat" prefWidth="221.0" text="Stat Arbitre" />
                                        </children>
                                        <padding>
                                           <Insets top="5.0" />
@@ -130,8 +132,6 @@
                                              </VBox.margin>
                                           </Button>
                                           <Button layoutX="10.0" layoutY="15.0" mnemonicParsing="false" prefWidth="221.0" text="Reservations Des Matchs" />
-                                          <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" onAction="#loadFormation" prefWidth="221.0" text="Formations Arbitre" />
-                                          <Button mnemonicParsing="false" onAction="#loadListeConcours" prefWidth="221.0" text="Concours Arbitre" />
                                           <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" prefWidth="221.0" text="Stades" />
                                           <Button layoutX="10.0" layoutY="135.0" mnemonicParsing="false" prefWidth="221.0" text="Compétitions" />
                                        </children>
@@ -220,8 +220,6 @@
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#loadListeFormations" prefHeight="25.0" prefWidth="220.0" text="Liste Formations" />
                                     <Button mnemonicParsing="false" onAction="#loadListeConcours" prefHeight="25.0" prefWidth="220.0" text="Liste Concours" />
-                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Mes Formations" />
-                                    <Button mnemonicParsing="false" onAction="#loadCompteRendu" prefHeight="25.0" prefWidth="220.0" text="Mes Concours" />
                                  </children>
                                  <padding>
                                     <Insets top="5.0" />
@@ -269,8 +267,9 @@
                         <items>
                               <Menu mnemonicParsing="false" text="Export">
                                 <items>
-                                  <MenuItem mnemonicParsing="false" text="Liste Joueur" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadPdfJoueur" text="Liste Joueur" />
                                     <MenuItem mnemonicParsing="false" text="Liste Match" />
+                                    <MenuItem fx:id="list" mnemonicParsing="false" onAction="#loadPdf" text="Liste Arbitre" />
                                 </items>
                               </Menu>
                           <MenuItem mnemonicParsing="false" onAction="#closePlatform" text="Close" />
