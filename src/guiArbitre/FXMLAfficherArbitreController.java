@@ -90,9 +90,10 @@ public class FXMLAfficherArbitreController implements Initializable {
        }else {categorie.setText("Not defined");}
     }
    public void selectedElement(){
+       
         a = tableau.getSelectionModel().getSelectedItem();
         modifierContent(a);
-        System.out.println(a.toString());
+        System.out.println(a.toString()+":)");
     }
    
     public void modifGrad(){
