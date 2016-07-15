@@ -5,6 +5,9 @@
  */
 package guiCompteRendu;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import dao.CompteRenduDAO;
 import dao.JoueurDAO;
 import dao.MedecinDAO;
@@ -12,6 +15,7 @@ import entities.AllUsers;
 import entities.CompteRendu;
 import entities.Joueur;
 import entities.Medecin;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,9 +24,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -34,6 +40,8 @@ import javafx.scene.shape.Rectangle;
  */
 public class FXMLAfficherCompteRenduController implements Initializable {
 
+    @FXML
+    private ComboBox chngEtat ;
     @FXML
     private Label observation;
     @FXML
@@ -86,7 +94,8 @@ public class FXMLAfficherCompteRenduController implements Initializable {
     String[] months = {"Janvier","Fevrier","Mars","Avril","Mai","Juin",
         "Juillet","Aout","Septembre","Octobre","Novembre","Decembre"};
     String[] days = {"Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"};
-    
+     @FXML
+    private TextField  nFile ;
     /**
      * Initializes the controller class.
      */
@@ -108,6 +117,30 @@ public class FXMLAfficherCompteRenduController implements Initializable {
             medPane.setVisible(true);
         }
 
+    }
+    
+    public void filePdf() throws Exception{
+     
+       String obs , nmJ , nmMed  ; 
+       obs = observation.getText();
+       nmJ = nomJoueur.getText();
+       nmMed = nomMed.getText();
+    Document document=new Document();
+    //création & nom du fichier pdf
+PdfWriter.getInstance(document,new FileOutputStream(nFile.getText()+".pdf")); 
+document.open();
+ 
+    document.add(new Paragraph("Compte Rendu :"+obs+" \n de Joueur : "+nmJ+"fait par le Medecin"+nmMed));
+       
+
+document.close(); }
+
+    public void changeEtatJoueur(){
+       
+       int id = cr.getIdJoueur();
+       JoueurDAO jdao = new JoueurDAO();
+       jdao.changetat(id,(String) chngEtat.getValue() );
+       
     }
 
     public void selection() {

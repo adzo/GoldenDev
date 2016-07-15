@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -7,10 +8,11 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiCompteRendu.FXMLAfficherCompteRenduController">
+<AnchorPane id="AnchorPane" prefHeight="379.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiCompteRendu.FXMLAfficherCompteRenduController">
    <children>
-      <TableView fx:id="tableau" layoutY="-0.0" onMouseClicked="#selection" prefHeight="400.0" prefWidth="320.0">
+      <TableView fx:id="tableau" layoutY="-0.0" onMouseClicked="#selection" prefHeight="294.0" prefWidth="320.0">
         <columns>
           <TableColumn fx:id="idCr" prefWidth="40.0" text="ID" />
           <TableColumn fx:id="idM" prefWidth="71.0" text="Medecin" />
@@ -18,18 +20,18 @@
             <TableColumn fx:id="result" prefWidth="120.0" text="Resultat" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="150.0" layoutX="370.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
-      <Label fx:id="observation" alignment="TOP_LEFT" layoutX="385.0" layoutY="40.0" prefHeight="120.0" prefWidth="270.0" wrapText="true">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="99.0" layoutX="370.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+      <Label fx:id="observation" alignment="TOP_LEFT" layoutX="385.0" layoutY="40.0" prefHeight="77.0" prefWidth="270.0" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="70.0" layoutX="370.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="70.0" layoutX="370.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="23.0" layoutX="385.0" layoutY="14.0" stroke="#000000e3" strokeType="INSIDE" width="101.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="23.0" layoutX="385.0" layoutY="182.0" stroke="#000000e3" strokeType="INSIDE" width="101.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="23.0" layoutX="385.0" layoutY="124.0" stroke="#000000e3" strokeType="INSIDE" width="101.0" />
       <Label layoutX="396.0" layoutY="17.0" text="Observation:" />
-      <Label layoutX="396.0" layoutY="185.0" text="Info Joueur :" />
-      <GridPane layoutX="386.0" layoutY="205.0" prefHeight="49.0" prefWidth="270.0">
+      <Label layoutX="396.0" layoutY="127.0" text="Info Joueur :" />
+      <GridPane layoutX="386.0" layoutY="147.0" prefHeight="49.0" prefWidth="270.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -49,7 +51,7 @@
             <Label fx:id="telJoueur" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Pane fx:id="medPane" layoutX="363.0" layoutY="271.0" prefHeight="89.0" prefWidth="313.0">
+      <Pane fx:id="medPane" layoutX="364.0" layoutY="206.0" prefHeight="89.0" prefWidth="313.0">
          <children>
             <Rectangle fx:id="medShape" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="70.0" layoutX="7.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
             <Rectangle fx:id="medShape2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="23.0" layoutX="20.0" stroke="#000000e3" strokeType="INSIDE" width="101.0" />
@@ -82,5 +84,35 @@
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="23.0" layoutX="511.0" layoutY="14.0" stroke="#000000e3" strokeType="INSIDE" width="144.0" />
       <Label fx:id="date" layoutX="520.0" layoutY="17.0" prefHeight="17.0" prefWidth="127.0" text="Date" />
+      <Pane layoutX="373.0" layoutY="291.0" prefHeight="77.0" prefWidth="300.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#fcfcfc" height="60.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="291.0" />
+            <ImageView fitHeight="35.0" fitWidth="150.0" layoutX="238.0" layoutY="21.0" onKeyPressed="#filePdf" onMouseClicked="#filePdf" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../guiArbitre/pdf.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nFile" layoutX="125.0" layoutY="27.0" prefHeight="25.0" prefWidth="87.0" />
+            <Text layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du Fichier :" />
+         </children>
+      </Pane>
+      <Pane layoutX="22.0" layoutY="302.0" prefHeight="60.0" prefWidth="300.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#fcfcfc" height="60.0" stroke="BLACK" strokeType="INSIDE" width="291.0" />
+            <ComboBox fx:id="chngEtat" layoutX="86.0" layoutY="18.0" prefHeight="25.0" prefWidth="87.0" promptText="Positif">
+             <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Positif" />
+          <String fx:value="Negatif" />
+      
+        </FXCollections>
+      </items>
+            
+            </ComboBox>
+            
+            <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Etat Joueur:" />
+            <Button layoutX="186.0" layoutY="18.0" mnemonicParsing="false" onAction="#changeEtatJoueur" text="OK" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
