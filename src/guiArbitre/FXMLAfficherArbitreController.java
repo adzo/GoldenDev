@@ -94,16 +94,21 @@ public class FXMLAfficherArbitreController implements Initializable {
         modifierContent(a);
         System.out.println(a.toString());
     }
-    public void loadModifierArbitre()throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/guiArbitre/FXMLModifierProfile.fxml"));
-        root.setVisible(true);
-    }
+   
     public void modifGrad(){
     btnModif.setVisible(false);
     btnValid.setVisible(true);
     categorie.setVisible(false);
     catgN.setVisible(true);
     }
+    
+      public void actualiserTAB(){
+        a.listes = adao.afficherTout();
+        data = FXCollections.observableArrayList(a.listes);
+        tableau.setItems(data);
+        final int size = tableau.getItems().size() -1;
+        tableau.scrollTo(size);
+      }
     public void valider(){
         a.setCategorie((String) catgN.getValue());
     adao.modifGRAD(a);
@@ -111,9 +116,9 @@ public class FXMLAfficherArbitreController implements Initializable {
 
       btnModif.setVisible(true);
           catgN.setVisible(false);
-
+    categorie.setText((String) catgN.getValue());
     categorie.setVisible(true);
-    
+    actualiserTAB();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

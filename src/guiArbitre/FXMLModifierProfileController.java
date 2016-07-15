@@ -6,6 +6,7 @@
 
 package guiArbitre;
 
+import dao.AllUsersDAO;
 import dao.ArbitreDAO;
 import entities.AllUsers;
 import entities.Arbitre;
@@ -31,8 +32,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -45,7 +49,22 @@ import jdk.internal.dynalink.support.Guards;
  * @author ift
  */
 public class FXMLModifierProfileController implements Initializable {
-
+    
+    
+    @FXML
+    private PasswordField oldPassword;
+    @FXML
+    private PasswordField newPassword1;
+    @FXML
+    private PasswordField newPassword2;
+    @FXML
+    private Label textTarget;
+    @FXML
+    private Button save;
+    @FXML
+    private Pane pN ;
+    @FXML
+    private Pane pPass ;
     
     
     @FXML
@@ -67,6 +86,50 @@ public class FXMLModifierProfileController implements Initializable {
     @FXML 
     private Button submit1;
     
+    
+    public void changePan (){
+    pN.setVisible(false);
+    pPass.setVisible(true);
+    textTarget.setText("");
+    }
+    public void cancelChg (){
+        oldPassword.clear();
+        newPassword1.clear();
+        newPassword2.clear();
+            pPass.setVisible(false);
+
+        pN.setVisible(true);
+    }
+    public void updatePassword(){
+        System.out.println(AllUsers.connected.toString());
+        
+        String oldPass;
+        String newPass1;
+        String newPass2;
+        
+        oldPass = oldPassword.getText();
+        newPass1 = newPassword1.getText();
+        newPass2 = newPassword2.getText();
+        System.out.println(AllUsers.connected.getMdp());
+        if (AllUsers.modifiedUser.getMdp().equals(oldPass)){
+            //Traitement de mise a jour
+            if(newPass1.equals(newPass2)){
+                //Mise a jour accordée
+                AllUsers.connected.setMdp(newPass1);
+                AllUsersDAO p = new AllUsersDAO();
+                p.modifierPassword(AllUsers.connected);
+              
+                AllUsers.connected.setMdp(newPass1);
+                        cancelChg();
+
+                textTarget.setText("Password updated with success");
+            }else {
+                textTarget.setText("Password doesn't match");
+            }
+        }else{
+            textTarget.setText("Ancien mot de pass éronné");
+        }
+    }
 
    
     public boolean verification(){
@@ -84,13 +147,8 @@ public class FXMLModifierProfileController implements Initializable {
         return test;
     }
          Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    @FXML
-    public void changerPasswd() throws IOException {
-       
-    }
-
-     @FXML
-    public void modifierProfile(ActionEvent event) throws IOException{
+  
+    public void modifierProfile() {
     
         String nom;
         String prenom;

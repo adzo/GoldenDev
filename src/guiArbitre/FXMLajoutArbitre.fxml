@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiArbitre.FXMLAjoutArbitreController">
+   <children>
+      <TextField fx:id="nomT" layoutX="164.0" layoutY="22.0" prefHeight="25.0" prefWidth="234.0" promptText="Nom Arbitre">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <TextField fx:id="adressT" layoutX="164.0" layoutY="103.0" prefHeight="25.0" prefWidth="234.0" promptText="Prenom " />
+      <TextField fx:id="cinT" layoutX="164.0" layoutY="63.0" prefHeight="25.0" prefWidth="234.0" promptText="CIN" />
+      <DatePicker fx:id="dateNaisT" layoutX="164.0" layoutY="142.0" prefHeight="25.0" prefWidth="234.0" promptText="Date de naissace " />
+      <Button fx:id="submit" layoutX="273.0" layoutY="324.0" mnemonicParsing="false" onAction="#ajoutArbitre" text="Ajouter" />
+      <ComboBox fx:id="categT" layoutX="249.0" layoutY="268.0" prefHeight="25.0" prefWidth="149.0" value="Amateur">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Amateur" />
+               <String fx:value="National" />
+               <String fx:value="International" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Text fx:id="targetText" fill="#e40c0c" layoutX="263.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="77.13671875" />
+      <TextArea layoutX="165.0" layoutY="187.0" prefHeight="71.0" prefWidth="234.0" promptText="Adresse..." />
+      <Text fontSmoothingType="LCD" layoutX="165.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie" wrappingWidth="64.13671875">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Text>         
+   </children>
+</AnchorPane>

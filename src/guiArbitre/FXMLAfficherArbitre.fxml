@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.collections.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
@@ -20,27 +22,21 @@
                 <TableColumn fx:id="nomAr" prefWidth="127.0" text="Nom" />
                   <TableColumn fx:id="prenomAr" prefWidth="126.0" text="Prenom" />
               </columns>
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="35.35" surfaceScale="1.15">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="191.51" elevation="150.7" />
+                     </light>
+                  </Lighting>
+               </effect>
             </TableView>
          </children>
       </Pane>
-      <Rectangle arcHeight="20.0" arcWidth="20.0" height="249.0" layoutX="324.0" layoutY="36.0" strokeType="INSIDE" width="319.0">
-         <fill>
-            <LinearGradient endX="0.49047619047619045" endY="0.1285714285714286" startX="0.8714285714285714">
-               <stops>
-                  <Stop color="WHITE" />
-                  <Stop color="#e4e2e2" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-         <stroke>
-            <LinearGradient endX="0.7380952380952381" endY="0.11428571428571432" startX="0.8047619047619048" startY="0.09047619047619049">
-               <stops>
-                  <Stop color="WHITE" />
-                  <Stop color="#ebe9e9" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </stroke>
-      </Rectangle>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#a19494" height="250.0" layoutX="324.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="249.0" layoutX="324.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="319.0" />
       <Label layoutX="340.0" layoutY="40.0" text="Date de Naissance :">
          <font>
             <Font name="Times New Roman" size="12.0" />
@@ -53,20 +49,23 @@
          <font>
             <Font name="Times New Roman" size="12.0" />
          </font></Label>
-      <Label fx:id="dateN" alignment="TOP_LEFT" layoutX="415.0" layoutY="61.0" prefHeight="44.0" prefWidth="149.0" text="Label" wrapText="true">
+      <Label fx:id="dateN" alignment="TOP_LEFT" layoutX="415.0" layoutY="61.0" prefHeight="44.0" prefWidth="149.0" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="cin" layoutX="415.0" layoutY="115.0" prefHeight="21.0" prefWidth="143.0" text="Label" />
-      <Label fx:id="adr" alignment="TOP_LEFT" layoutX="415.0" layoutY="165.0" prefHeight="51.0" prefWidth="149.0" text="Label" wrapText="true">
+      <Label fx:id="cin" layoutX="415.0" layoutY="115.0" prefHeight="21.0" prefWidth="143.0" />
+      <Label fx:id="adr" alignment="TOP_LEFT" layoutX="415.0" layoutY="165.0" prefHeight="51.0" prefWidth="149.0" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
       <Label layoutX="337.0" layoutY="230.0" text="Catégorie :" />
-      <Label fx:id="categorie" layoutX="415.0" layoutY="230.0" text="Label" />
-      <Button fx:id="btnModif" layoutX="435.0" layoutY="304.0" mnemonicParsing="false" onAction="#modifGrad" text="Modifier Grade" />
+      <Label fx:id="categorie" layoutX="415.0" layoutY="230.0" />
+      <Button fx:id="btnModif" layoutX="435.0" layoutY="304.0" mnemonicParsing="false" onAction="#modifGrad" text="Modifier Grade">
+         <effect>
+            <Blend mode="BLUE" opacity="0.69" />
+         </effect></Button>
       <Button fx:id="btnValid" layoutX="458.0" layoutY="304.0" mnemonicParsing="false" onAction="#valider" text="Valider" visible="false" />
       <ComboBox fx:id="catgN" layoutX="409.0" layoutY="226.0" prefHeight="25.0" prefWidth="149.0" value="Amateur" visible="false">
          <items>
@@ -77,5 +76,10 @@
             </FXCollections>
          </items>
       </ComboBox>
+      <ImageView fitHeight="45.0" fitWidth="54.0" layoutX="661.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Arbitre.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
