@@ -55,7 +55,7 @@ public class PieChartJoueurs extends Application {
           try{
 
             c = DataSource.getInstance().getConnection();
-
+           
             //SQL FOR SELECTING NATIONALITY OF CUSTOMER
 
             String SQL = "SELECT count(idJoueur) FROM `joueur` where etat=1  ";
