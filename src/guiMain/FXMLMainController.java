@@ -12,7 +12,9 @@ import dao.ResponsableAdDAO;
 import dao.UserDAO;
 import entities.AllUsers;
 import guiLogin.Login;
+import guiStat.PieChartArbitre;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -24,6 +26,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -88,6 +91,8 @@ public class FXMLMainController implements Initializable {
     private ImageView changeLogin;
     @FXML
     private MenuItem about;
+    @FXML
+    private MenuItem list;
 
     // </editor-fold> 
     /**
@@ -275,6 +280,7 @@ public class FXMLMainController implements Initializable {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiArbitre/FXMLafficherArbitre.fxml"));
         centerPane.getChildren().clear();
+        home();
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Arbitre");
     }
@@ -282,8 +288,26 @@ public class FXMLMainController implements Initializable {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiFormation/FXMLGestionFormations.fxml"));
         centerPane.getChildren().clear();
+                home();
+
         centerPane.getChildren().add(root);
         activeWindow.setText("Gestion Formation");
+    }
+    public void loadPdfJoueur() throws IOException {
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiJoueur/FXMLpdfListJoueurs.fxml"));
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Exportation Liste des Joueurs");
+    }
+    
+    public void loadStat() throws IOException {
+        activeWindow.setText("Loading...");
+                centerPane.getChildren().clear();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/guiArbitre/FXMLStat.fxml"));
+        home();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Stat..");
     }
                                                                                                                                                                                                                                         // </editor-fold>
      // Contrôle partie Medecin
@@ -299,10 +323,19 @@ public class FXMLMainController implements Initializable {
     // </editor-fold>
     // Contrôle partie Arbitre
     // <editor-fold defaultstate="collapsed"> 
+    public void loadModifierProfileArbitre() throws IOException {
+          activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiArbitre/FXMLModifierProfile.fxml"));
+        centerPane.getChildren().clear();
+        home();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Liste des Formations");
+    }
     public void loadListeFormations() throws IOException {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiFormation/FXMLGestionFormations.fxml"));
         centerPane.getChildren().clear();
+        home();
         centerPane.getChildren().add(root);
         activeWindow.setText("Liste des Formations");
     }
@@ -310,9 +343,17 @@ public class FXMLMainController implements Initializable {
         activeWindow.setText("Loading...");
         Parent root = FXMLLoader.load(getClass().getResource("/guiConcours/FXMLGestionConcours.fxml"));
         centerPane.getChildren().clear();
+        home();
         centerPane.getChildren().add(root);
         activeWindow.setText("Liste des concours");
     }
+     public void loadPdf() throws IOException {
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiArbitre/FXMLpdfListArbitres.fxml"));
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Exportation Liste des Arbitres");
+    }
+     
      
 
     // </editor-fold>
