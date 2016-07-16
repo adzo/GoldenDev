@@ -184,9 +184,22 @@ private Pane pAdd ;
     }
      
     public void selectedElement(){
+        
+        
         c  = tableauC.getSelectionModel().getSelectedItem();
         System.out.println(c);
         modifierContent(c);
+        
+             if(!pF.verifierParticipation(c.getIdConcour(), AllUsers.connected.getId())){
+             
+               participer.setText("Annuler Participation");
+             
+             }
+             else {           
+                      participer.setText("Participer");
+
+             }
+
     }
     
     public void participationConcour(){ 
@@ -224,16 +237,6 @@ private Pane pAdd ;
     public void initialize(URL url, ResourceBundle rb) {
         
         
-             if(pF.verifierParticipation(c.getIdConcour(), AllUsers.connected.getId())){
-             
-               alert.setTitle("Annuler Participation");
-             
-             }
-             else {           
-                      participer.setText("Participer");
-
-             }
-
        if("admin".equals(AllUsers.connected.getType())){
            pAdmin.setVisible(true);
            pArbitre.setVisible(false);
