@@ -231,7 +231,7 @@
                            <content>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="Modifier mes infos" />
+                                    <Button mnemonicParsing="false" onAction="#loadModifierProfileArbitre" prefHeight="31.0" prefWidth="237.0" text="Modifier mes infos" />
                                  </children>
                               </VBox>
                            </content>
