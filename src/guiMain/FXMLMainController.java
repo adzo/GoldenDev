@@ -315,7 +315,26 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
         activeWindow.setText("Stat..");
     }
-                                                                                                                                                                                                                                        // </editor-fold>
+     
+    public void loadStatJoueur() throws IOException {
+        activeWindow.setText("Loading...");
+                centerPane.getChildren().clear();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/guiJoueur/FXMLStat.fxml"));
+        home();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Stat..");
+    }
+       public void loadStatUsers() throws IOException {
+        activeWindow.setText("Loading...");
+                centerPane.getChildren().clear();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/guiAllUsers/FXMLStat.fxml"));
+        home();
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Stat..");
+    }
+                                                                                                                                                                                                                                                        // </editor-fold>
      // Contrôle partie Medecin
     // <editor-fold defaultstate="collapsed"> 
     public void ajouterCompteRendu() throws IOException {
