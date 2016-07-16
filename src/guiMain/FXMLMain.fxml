@@ -111,6 +111,8 @@
                                           <Button mnemonicParsing="false" onAction="#loadListeConcours" prefWidth="221.0" text="Concours Arbitre" />
                                           <Button mnemonicParsing="false" onAction="#loadFormation" prefWidth="221.0" text="Formations Arbitre" />
                                           <Button mnemonicParsing="false" onAction="#loadStat" prefWidth="221.0" text="Stat Arbitre" />
+                                          <Button mnemonicParsing="false" onAction="#loadStatJoueur" prefWidth="221.0" text="Stat Joueur" />
+                                          <Button mnemonicParsing="false" onAction="#loadStatUsers" prefWidth="221.0" text="Stat All Users" />
                                        </children>
                                        <padding>
                                           <Insets top="5.0" />
