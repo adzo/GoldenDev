@@ -299,6 +299,12 @@ public class FXMLMainController implements Initializable {
         centerPane.getChildren().add(root);
         activeWindow.setText("Exportation Liste des Joueurs");
     }
+    public void loadAbout() throws IOException {
+        activeWindow.setText("Loading...");
+        Parent root = FXMLLoader.load(getClass().getResource("/guiSplash/FXMLSplash.fxml"));
+        centerPane.getChildren().add(root);
+        activeWindow.setText("Equipe GoldenDev");
+    }
     
     public void loadStat() throws IOException {
         activeWindow.setText("Loading...");
