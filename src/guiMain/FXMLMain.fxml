@@ -277,7 +277,7 @@
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem fx:id="about" mnemonicParsing="false" onAction="#openSplash" text="About" />
+                          <MenuItem fx:id="about" mnemonicParsing="false" onAction="#loadAbout" text="About" />
                         </items>
                       </Menu>
                     </menus>
