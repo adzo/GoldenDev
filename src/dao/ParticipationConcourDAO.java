@@ -72,7 +72,6 @@ catch(SQLException ex){
         resultSet.next();
        nb=resultSet.getInt("cnt");
        if(nb<1){
-        System.out.println("Participation éffectué");
         return true;
        }
         
