@@ -32,22 +32,22 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="           SELMI Abdelaziz">
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="116.0" text="           BARAKET Sami" textFill="#fff9f9">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="           ARIBI Med Aziz">
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="136.0" text="           ARIBI Med Aziz" textFill="#fffdfd">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="           BARAKET Sami">
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="118.0" text="           SELMI Abdelaziz" textFill="#fffefe">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="            JS Seif Eddine">
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="253.0" text="           JAOUADI SeifEddine" textFill="WHITE">
                      <font>
                         <Font size="11.0" />
                      </font>
