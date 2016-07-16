@@ -36,7 +36,7 @@
          </children>
       </Pane>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#a19494" height="250.0" layoutX="324.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="249.0" layoutX="324.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="319.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="249.0" layoutX="324.0" layoutY="36.0" stroke="#545252" strokeType="INSIDE" width="319.0" />
       <Label layoutX="340.0" layoutY="40.0" text="Date de Naissance :">
          <font>
             <Font name="Times New Roman" size="12.0" />
